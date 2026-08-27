@@ -2082,7 +2082,6 @@ export const AuthLandingPage = () => {
       <BookingSuccessModal />
       <TestimonialBottomSheet />
       <AuthDrawerModal />
-      <SpecialOfferModal />
       <WarningErrorModal />
       <GlobalToastContainer />
 

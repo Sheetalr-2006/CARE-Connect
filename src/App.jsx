@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { AppProvider } from './context/AppContext';
 import { Layout } from './components/layout/Layout';
+import { SpecialOfferModal } from './components/modals/SpecialOfferModal';
+
 
 // Auth & Onboarding
 import { AuthLandingPage } from './pages/Auth/AuthLandingPage';
@@ -103,6 +105,9 @@ export function App() {
             {/* Catch-all */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
+
+          {/* Global Welcome Offer Benefit Popup (Available on Every Page & Route) */}
+          <SpecialOfferModal />
         </BrowserRouter>
       </AppProvider>
     </AuthProvider>

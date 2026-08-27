@@ -15,8 +15,9 @@ export const SpecialOfferModal = ({
   code = "CARE15",
   headline = "Enjoy -15% OFF Your First Month of Care",
   description = "Get dedicated companion visits, medication tracking, and 24/7 peace of mind.",
-  delayMs = 3500,
-  storageKey = "cc_welcome_offer_seen"
+  delayMs = 3000,
+  storageKey = "hasSeenWelcomeOffer",
+  expiryHours = 24
 }) => {
   const { isSpecialOfferOpen, setIsSpecialOfferOpen, showToast } = useApp();
   const [copied, setCopied] = useState(false);
@@ -25,16 +26,26 @@ export const SpecialOfferModal = ({
   const modalRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Automatic Trigger: Pops up a few seconds after visitor lands (Once per session)
+  // Global Root Trigger: Checks once per session / 24hr across ALL routes & pages
   useEffect(() => {
-    const hasSeen = sessionStorage.getItem(storageKey);
-    if (!hasSeen) {
-      const timer = setTimeout(() => {
-        setIsSpecialOfferOpen(true);
-      }, delayMs);
-      return () => clearTimeout(timer);
+    try {
+      const sessionSeen = sessionStorage.getItem(storageKey);
+      const localSeenTimestamp = localStorage.getItem(`${storageKey}_timestamp`);
+      
+      const now = Date.now();
+      const expiryMs = expiryHours * 60 * 60 * 1000;
+      const isExpired = !localSeenTimestamp || (now - parseInt(localSeenTimestamp, 10)) > expiryMs;
+
+      if (!sessionSeen && isExpired) {
+        const timer = setTimeout(() => {
+          setIsSpecialOfferOpen(true);
+        }, delayMs);
+        return () => clearTimeout(timer);
+      }
+    } catch (err) {
+      console.warn("Storage check skipped:", err);
     }
-  }, [delayMs, storageKey, setIsSpecialOfferOpen]);
+  }, [delayMs, storageKey, expiryHours, setIsSpecialOfferOpen]);
 
   // Focus trap and Escape key listener
   useEffect(() => {
@@ -55,14 +66,24 @@ export const SpecialOfferModal = ({
     };
   }, [isSpecialOfferOpen]);
 
+  const recordDismissed = () => {
+    try {
+      sessionStorage.setItem(storageKey, 'true');
+      localStorage.setItem(`${storageKey}_timestamp`, Date.now().toString());
+    } catch (e) {
+      // Storage unavailable
+    }
+  };
+
   const handleDismiss = () => {
     setIsSpecialOfferOpen(false);
-    sessionStorage.setItem(storageKey, 'true');
+    recordDismissed();
   };
 
   const handleCopyCode = () => {
     navigator.clipboard.writeText(code);
     setCopied(true);
+    recordDismissed();
     if (showToast) {
       showToast({
         type: 'success',
@@ -77,6 +98,7 @@ export const SpecialOfferModal = ({
     e.preventDefault();
     if (!email) return;
     setIsClaimed(true);
+    recordDismissed();
     if (showToast) {
       showToast({
         type: 'success',
@@ -93,11 +115,11 @@ export const SpecialOfferModal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1F2A44]/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-[#1F2A44]/65 backdrop-blur-xs animate-in fade-in duration-200"
       onClick={handleDismiss}
       role="dialog"
       aria-modal="true"
-      aria-labelledby="welcome-offer-title"
+      aria-labelledby="global-welcome-offer-title"
     >
       {/* Centered Card (Rounded ~20px, Off-white/Cream, Soft Drop Shadow) */}
       <div
@@ -127,7 +149,7 @@ export const SpecialOfferModal = ({
         </div>
 
         {/* Bold Serif Headline with Discount in Orange and Rest in Dark Navy */}
-        <h3 id="welcome-offer-title" className="text-2xl sm:text-[28px] font-bold text-[#1F2A44] font-serif leading-tight">
+        <h3 id="global-welcome-offer-title" className="text-2xl sm:text-[28px] font-bold text-[#1F2A44] font-serif leading-tight">
           Enjoy <span className="text-[#E8703A] font-serif">-{discountPercent}% OFF</span> <br />
           Your First Month of Care
         </h3>

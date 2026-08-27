@@ -80,7 +80,6 @@ export const Layout = ({ children }) => {
       <BookingSuccessModal />
       <TestimonialBottomSheet />
       <AuthDrawerModal />
-      <SpecialOfferModal />
       <WarningErrorModal />
       <GlobalToastContainer />
       <SeniorVoiceAssistant />
