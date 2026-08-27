@@ -7,11 +7,12 @@ export const PendingApprovalPage = () => {
     <div className="min-h-screen bg-background flex flex-col justify-between p-4 sm:p-6 lg:p-8 max-w-lg mx-auto">
       
       <div className="flex items-center justify-between mb-8">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-ambient">
-            <Heart className="w-5 h-5 fill-white" />
-          </div>
-          <span className="font-bold text-lg text-on-surface">CareConnect</span>
+        <Link to="/" className="flex items-center gap-2 group" title="CareConnect Home">
+          <img
+            src="/careconnect-logo.png"
+            alt="CareConnect Logo"
+            className="h-10 sm:h-12 w-auto max-w-[190px] object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
         <span className="text-[11px] font-semibold text-amber-700 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
           Verification In Progress

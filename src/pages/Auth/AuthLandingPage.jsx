@@ -623,7 +623,7 @@ export const AuthLandingPage = () => {
               <img
                 src="/careconnect-logo.png"
                 alt="CareConnect Logo"
-                className="h-8 sm:h-9 w-auto max-w-[160px] object-contain transition-transform group-hover:scale-105"
+                className="h-11 sm:h-12 w-auto max-w-[210px] object-contain transition-transform group-hover:scale-105"
               />
             </Link>
           </div>
@@ -1683,10 +1683,19 @@ export const AuthLandingPage = () => {
           
           <div className="bg-white p-8 sm:p-12 rounded-3xl border border-[#E2E8F0] shadow-elevated">
             
-            <div className="text-center max-w-lg mx-auto mb-8 space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
-                Member Access Portal
-              </span>
+            <div className="text-center max-w-lg mx-auto mb-8 space-y-3">
+              <div className="flex justify-center mb-2">
+                <img
+                  src="/careconnect-logo.png"
+                  alt="CareConnect Logo"
+                  className="h-14 sm:h-16 w-auto max-w-[240px] object-contain drop-shadow-xs"
+                />
+              </div>
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
+                  Member Access Portal
+                </span>
+              </div>
               <h2 className="text-3xl font-black text-[#1A1D20] font-serif">
                 Sign In to Your <span className="text-primary font-serif">Care Dashboard</span>
               </h2>

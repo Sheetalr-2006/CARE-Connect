@@ -34,11 +34,12 @@ export const InteractionsPage = () => {
       
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-ambient">
-            <Heart className="w-5 h-5 fill-white" />
-          </div>
-          <span className="font-bold text-lg text-on-surface">CareConnect</span>
+        <Link to="/" className="flex items-center gap-2 group" title="CareConnect Home">
+          <img
+            src="/careconnect-logo.png"
+            alt="CareConnect Logo"
+            className="h-10 sm:h-12 w-auto max-w-[190px] object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
         <span className="text-[11px] font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
           Step 3 of 3 • Preferences

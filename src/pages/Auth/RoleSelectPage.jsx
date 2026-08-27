@@ -46,11 +46,12 @@ export const RoleSelectPage = () => {
       {/* Top Brand */}
       <div>
         <div className="flex items-center justify-between mb-6">
-          <Link to="/auth/login" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white shadow-ambient">
-              <Heart className="w-5 h-5 fill-white" />
-            </div>
-            <span className="font-bold text-lg text-on-surface">CareConnect</span>
+          <Link to="/auth/login" className="flex items-center gap-2 group" title="CareConnect Home">
+            <img
+              src="/careconnect-logo.png"
+              alt="CareConnect Logo"
+              className="h-10 sm:h-12 w-auto max-w-[190px] object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
           <Link to="/auth/login" className="text-xs font-semibold text-primary hover:underline">
             Already registered? Sign In

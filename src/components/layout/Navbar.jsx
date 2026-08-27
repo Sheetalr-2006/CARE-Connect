@@ -73,7 +73,7 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-slate-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.03)] px-4 lg:px-8 h-14 transition-colors">
+    <header className="sticky top-0 z-40 bg-white border-b border-slate-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.03)] px-4 lg:px-8 h-16 transition-colors">
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
         
         {/* Left: Brand & Mobile Toggle */}
@@ -90,7 +90,7 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
             <img
               src="/careconnect-logo.png"
               alt="CareConnect"
-              className="h-8 sm:h-9 w-auto max-w-[160px] object-contain transition-transform group-hover:scale-105"
+              className="h-10 sm:h-11 md:h-12 w-auto max-w-[200px] object-contain transition-transform group-hover:scale-105"
             />
           </Link>
         </div>

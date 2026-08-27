@@ -344,13 +344,12 @@ export const LoginPage = () => {
       
       {/* Brand Header */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center mb-6">
-        <Link to="/" className="inline-flex items-center gap-2.5 group mb-3">
-          <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-white shadow-ambient group-hover:scale-105 transition-transform">
-            <Heart className="w-6 h-6 fill-white" />
-          </div>
-          <span className="font-bold text-2xl tracking-tight text-[#0F172A] font-serif">
-            Care<span className="text-primary font-serif">Connect</span>
-          </span>
+        <Link to="/" className="inline-flex items-center justify-center group mb-3" title="CareConnect Home">
+          <img
+            src="/careconnect-logo.png"
+            alt="CareConnect Logo"
+            className="h-16 sm:h-18 w-auto max-w-[260px] object-contain transition-transform group-hover:scale-105"
+          />
         </Link>
 
         <h1 className="text-2xl sm:text-3xl font-black text-[#0F172A] font-serif">
