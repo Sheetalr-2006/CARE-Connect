@@ -36,6 +36,16 @@
   * Multilingual Voice Control with continuous listening across 12 languages.
   * High-contrast mode and font scaling (Normal, Large, Extra Large).
 
+* **💬 Live Messaging & Social Enquiry:**
+  * Floating WhatsApp enquiry icon with pre-filled support message.
+  * Floating Instagram connect button linked to official profile.
+
+* **🌍 International Accessibility & Country Calling Codes:**
+  * Searchable country selector with 240+ international dial codes and flag badges across all registration portals.
+
+* **🎵 Gentle Audio Experience:**
+  * Calming acoustic Morning Harp intro melody tailored for senior comfort.
+
 * **🔌 Live Express Backend API:**
   * Node.js & Express REST API server with live data persistence for visits, appointments, and telemetry.
 
