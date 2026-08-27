@@ -8,61 +8,61 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Moonstone Cyan & Deep Oceanic Teal (Primary Accents)
-        "primary": "#336E7D",
-        "primary-hover": "#24535F",
-        "primary-light": "#4C9DB0",
-        "primary-container": "#E0F2F6",
-        "primary-fixed": "#FFEBAF",
-        "primary-fixed-dim": "#FFF6DE",
+        // Calming Royal Emerald & Sage Mint (Primary Healthcare Brand)
+        "primary": "#0F4C3A",
+        "primary-hover": "#0A3528",
+        "primary-light": "#2A7F62",
+        "primary-container": "#E2ECE9",
+        "primary-fixed": "#D1E3DE",
+        "primary-fixed-dim": "#BED4CE",
         "on-primary": "#ffffff",
-        "on-primary-container": "#16323B",
-        "on-primary-fixed": "#1F4550",
-        "on-primary-fixed-variant": "#336E7D",
-        "inverse-primary": "#99C9D4",
+        "on-primary-container": "#0F4C3A",
+        "on-primary-fixed": "#0A3528",
+        "on-primary-fixed-variant": "#2A7F62",
+        "inverse-primary": "#86EFAC",
 
-        // Dark Ink Teal (Headings, Buttons & Bold UI Elements)
-        "secondary": "#1F4550",
-        "secondary-hover": "#16323B",
-        "secondary-container": "#FFF6DE",
-        "secondary-fixed": "#E8D49E",
-        "secondary-fixed-dim": "#E5DAC0",
+        // Deep Forest Green / Slate (Headings, Buttons & Bold UI Elements)
+        "secondary": "#132E27",
+        "secondary-hover": "#0C1F1A",
+        "secondary-container": "#E8F0ED",
+        "secondary-fixed": "#D5E5E0",
+        "secondary-fixed-dim": "#BFD6D0",
         "on-secondary": "#ffffff",
-        "on-secondary-container": "#1F4550",
-        "on-secondary-fixed": "#16323B",
-        "on-secondary-fixed-variant": "#1F4550",
+        "on-secondary-container": "#132E27",
+        "on-secondary-fixed": "#0C1F1A",
+        "on-secondary-fixed-variant": "#132E27",
 
-        // Warm Vanilla & Honey Amber Accents
-        "tertiary": "#4C9DB0",
-        "tertiary-hover": "#3A8293",
-        "tertiary-container": "#FFEBAF",
-        "tertiary-fixed": "#FFF6DE",
-        "tertiary-fixed-dim": "#EADDBF",
+        // Warm Terracotta & Amber Accents
+        "tertiary": "#D97706",
+        "tertiary-hover": "#B45309",
+        "tertiary-container": "#FEF3C7",
+        "tertiary-fixed": "#FDE68A",
+        "tertiary-fixed-dim": "#FCD34D",
         "on-tertiary": "#ffffff",
-        "on-tertiary-container": "#1F4550",
-        "on-tertiary-fixed": "#1F4550",
-        "on-tertiary-fixed-variant": "#336E7D",
+        "on-tertiary-container": "#78350F",
+        "on-tertiary-fixed": "#78350F",
+        "on-tertiary-fixed-variant": "#B45309",
 
-        // Warm Vanilla & Off-White Canvas Backgrounds
-        "background": "#FFFDF7",
-        "on-background": "#1F4550",
+        // Pale Almond & Crisp Natural Canvas Backgrounds
+        "background": "#FAF8F5",
+        "on-background": "#132E27",
 
-        "surface": "#FFFDF7",
+        "surface": "#FAF8F5",
         "surface-bright": "#FFFFFF",
-        "surface-dim": "#FFF6DE",
+        "surface-dim": "#F0EDE6",
         "surface-container-lowest": "#FFFFFF",
-        "surface-container-low": "#FFFDF7",
-        "surface-container": "#FFF6DE",
-        "surface-container-high": "#FFEBAF",
-        "surface-container-highest": "#EADDBF",
-        "surface-variant": "#F4EEDC",
-        "surface-tint": "#336E7D",
-        "on-surface": "#1F4550",
-        "on-surface-variant": "#587882",
-        "inverse-surface": "#1F4550",
-        "inverse-on-surface": "#FFFDF7",
-        "outline": "#DED6C0",
-        "outline-variant": "#EFE9DA",
+        "surface-container-low": "#F5F2EC",
+        "surface-container": "#EAE6DC",
+        "surface-container-high": "#E0DBD0",
+        "surface-container-highest": "#D4CEC1",
+        "surface-variant": "#E4DFD5",
+        "surface-tint": "#0F4C3A",
+        "on-surface": "#132E27",
+        "on-surface-variant": "#46635A",
+        "inverse-surface": "#132E27",
+        "inverse-on-surface": "#FAF8F5",
+        "outline": "#C7D4CF",
+        "outline-variant": "#DCE6E2",
 
         // Status Indicators
         "error": "#BA1A1A",
@@ -70,8 +70,8 @@ export default {
         "on-error": "#ffffff",
         "on-error-container": "#410002",
 
-        "success": "#2D7D62",
-        "success-container": "#D6F2E7",
+        "success": "#0F4C3A",
+        "success-container": "#E2ECE9",
         "on-success": "#ffffff"
       },
       fontFamily: {
@@ -79,9 +79,9 @@ export default {
         sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
       },
       boxShadow: {
-        "ambient": "0 8px 30px rgba(51, 110, 125, 0.15)",
-        "card": "0 2px 12px rgba(31, 69, 80, 0.05), 0 1px 3px rgba(31, 69, 80, 0.03)",
-        "elevated": "0 20px 40px -15px rgba(31, 69, 80, 0.12), 0 0 1px 1px rgba(31, 69, 80, 0.06)"
+        "ambient": "0 8px 30px rgba(15, 76, 58, 0.14)",
+        "card": "0 2px 12px rgba(19, 46, 39, 0.05), 0 1px 3px rgba(19, 46, 39, 0.03)",
+        "elevated": "0 20px 40px -15px rgba(15, 76, 58, 0.15), 0 0 1px 1px rgba(19, 46, 39, 0.06)"
       }
     },
   },
