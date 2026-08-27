@@ -233,8 +233,8 @@ export const SeniorVoiceAssistant = () => {
 
   return (
     <>
-      {/* FLOATING PROMINENT ACCESSIBLE VOICE BUTTON (Style 7 Spec: Ripple & Tooltip Bubble) */}
-      <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2 group">
+      {/* FLOATING PROMINENT ACCESSIBLE VOICE BUTTON (Style 7 Spec: Ripple & Tooltip Bubble - Left Docked) */}
+      <div className="fixed bottom-20 sm:bottom-6 left-4 sm:left-6 z-40 flex flex-col items-start gap-2 group">
         
         {/* Tooltip Bubble Popup Near Mic (Style 7 Spec) */}
         <div className="flex items-center gap-2 bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-2xl shadow-xl border border-white/15 animate-tooltip-fade-in">
@@ -257,11 +257,11 @@ export const SeniorVoiceAssistant = () => {
               setIsVoiceAssistantOpen(true);
               stopSpeaking();
             }}
-            className="w-14 sm:w-16 h-14 sm:h-16 rounded-full bg-gradient-to-tr from-primary to-orange-500 hover:from-primary-hover hover:to-primary text-white shadow-ambient flex items-center justify-center transition-all hover:scale-105 active:scale-95 relative border-3 border-white ring-4 ring-primary/25 focus:outline-none"
+            className="w-13 sm:w-16 h-13 sm:h-16 rounded-full bg-gradient-to-tr from-primary to-orange-500 hover:from-primary-hover hover:to-primary text-white shadow-ambient flex items-center justify-center transition-all hover:scale-105 active:scale-95 relative border-3 border-white ring-4 ring-primary/25 focus:outline-none"
             aria-label="Open Senior Voice Assistant"
             title="Open Senior Voice Assistant"
           >
-            <Mic size={28} className="animate-pulse" />
+            <Mic size={26} className="animate-pulse" />
             
             {/* Status dot */}
             <span className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-ping" />

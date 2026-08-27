@@ -5,6 +5,7 @@ import { AppProvider } from './context/AppContext';
 import { Layout } from './components/layout/Layout';
 import { SpecialOfferModal } from './components/modals/SpecialOfferModal';
 import { SplashScreen } from './components/common/SplashScreen';
+import { FloatingSocialEnquiry } from './components/common/FloatingSocialEnquiry';
 
 
 // Auth & Onboarding
@@ -109,6 +110,9 @@ export function App() {
 
           {/* Global Welcome Offer Benefit Popup (Available on Every Page & Route) */}
           <SpecialOfferModal />
+
+          {/* Floating WhatsApp and Instagram Enquiry Buttons (Always Visible Across All Pages) */}
+          <FloatingSocialEnquiry />
 
           {/* First-Load Animated Splash Intro Screen */}
           <SplashScreen />
