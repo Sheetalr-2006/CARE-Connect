@@ -215,9 +215,9 @@ function generateZenHarmonic() {
 const publicDir = path.join(__dirname, 'public');
 
 const files = [
-  { name: 'careconnect-chime.wav', samples: generatePeacefulSanctuary() },
-  { name: 'careconnect-sound-sanctuary.wav', samples: generatePeacefulSanctuary() },
+  { name: 'careconnect-chime.wav', samples: generateGentleMorningHarp() },
   { name: 'careconnect-sound-harp.wav', samples: generateGentleMorningHarp() },
+  { name: 'careconnect-sound-sanctuary.wav', samples: generatePeacefulSanctuary() },
   { name: 'careconnect-sound-piano.wav', samples: generateWarmFeltPiano() },
   { name: 'careconnect-sound-zen.wav', samples: generateZenHarmonic() }
 ];

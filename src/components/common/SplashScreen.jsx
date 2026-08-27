@@ -3,18 +3,18 @@ import { ArrowRight, Volume2, VolumeX, Sparkles, Music, Heart, Bell, Feather, Su
 
 export const SENIOR_PLEASANT_SOUNDS = [
   {
-    id: 'sanctuary',
-    label: 'Peaceful Sanctuary',
-    icon: Bell,
-    file: '/careconnect-sound-sanctuary.wav',
-    desc: 'Soft warm bell & soothing singing bowl harmony'
-  },
-  {
     id: 'harp',
     label: 'Morning Harp',
     icon: Sun,
     file: '/careconnect-sound-harp.wav',
     desc: 'Delicate acoustic harp rolling notes'
+  },
+  {
+    id: 'sanctuary',
+    label: 'Peaceful Sanctuary',
+    icon: Bell,
+    file: '/careconnect-sound-sanctuary.wav',
+    desc: 'Soft warm bell & soothing singing bowl harmony'
   },
   {
     id: 'piano',
@@ -44,9 +44,9 @@ export const SplashScreen = ({
   
   const [selectedSoundId, setSelectedSoundId] = useState(() => {
     try {
-      return localStorage.getItem('cc_sound_profile') || 'sanctuary';
+      return localStorage.getItem('cc_sound_profile') || 'harp';
     } catch {
-      return 'sanctuary';
+      return 'harp';
     }
   });
 
