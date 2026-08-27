@@ -51,7 +51,8 @@ import {
   Bell,
   Shield,
   UserCheck,
-  Ticket
+  Ticket,
+  Gift
 } from 'lucide-react';
 import { ForgotPasswordModal } from '../../components/modals/ForgotPasswordModal';
 import { SeniorVoiceAssistant } from '../../components/common/SeniorVoiceAssistant';
