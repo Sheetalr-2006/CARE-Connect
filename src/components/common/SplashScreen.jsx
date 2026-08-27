@@ -1,103 +1,55 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Volume2, VolumeX, Sparkles } from 'lucide-react';
+import { ArrowRight, Volume2, VolumeX, Sparkles, Music, Heart, Bell, Radio } from 'lucide-react';
 
-/**
- * Robust Multi-Engine Audio Player for CareConnect Intro Chime:
- * 1. Primary: HTML5 Audio with `/careconnect-chime.wav`
- * 2. Fallback: Web Audio API Realtime Synthesizer (Heartbeat + Harmonic Chime)
- * 3. Autoplay Fallback: Unlocks and plays on first user interaction (click/touch/key)
- */
-const playSynthesizedChime = (audioCtxRef) => {
-  try {
-    const AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
-
-    if (!audioCtxRef.current) {
-      audioCtxRef.current = new AudioCtx();
-    }
-    const ctx = audioCtxRef.current;
-
-    if (ctx.state === 'suspended') {
-      ctx.resume().catch(() => {});
-    }
-
-    const now = ctx.currentTime;
-    const masterGain = ctx.createGain();
-    masterGain.gain.setValueAtTime(0.45, now);
-    masterGain.connect(ctx.destination);
-
-    // 1. First Heartbeat Thump (t = 0.05s)
-    const osc1 = ctx.createOscillator();
-    const gain1 = ctx.createGain();
-    const filter1 = ctx.createBiquadFilter();
-    filter1.type = 'lowpass';
-    filter1.frequency.setValueAtTime(140, now);
-    osc1.type = 'sine';
-    osc1.frequency.setValueAtTime(70, now + 0.05);
-    osc1.frequency.exponentialRampToValueAtTime(45, now + 0.25);
-    gain1.gain.setValueAtTime(0.001, now);
-    gain1.gain.linearRampToValueAtTime(0.6, now + 0.08);
-    gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
-    osc1.connect(filter1);
-    filter1.connect(gain1);
-    gain1.connect(masterGain);
-    osc1.start(now + 0.05);
-    osc1.stop(now + 0.28);
-
-    // 2. Second Heartbeat Thump (t = 0.28s)
-    const osc2 = ctx.createOscillator();
-    const gain2 = ctx.createGain();
-    const filter2 = ctx.createBiquadFilter();
-    filter2.type = 'lowpass';
-    filter2.frequency.setValueAtTime(160, now);
-    osc2.type = 'sine';
-    osc2.frequency.setValueAtTime(78, now + 0.28);
-    osc2.frequency.exponentialRampToValueAtTime(48, now + 0.52);
-    gain2.gain.setValueAtTime(0.001, now + 0.28);
-    gain2.gain.linearRampToValueAtTime(0.75, now + 0.32);
-    gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.54);
-    osc2.connect(filter2);
-    filter2.connect(gain2);
-    gain2.connect(masterGain);
-    osc2.start(now + 0.28);
-    osc2.stop(now + 0.55);
-
-    // 3. Warm Harmonic Chime (t = 0.52s)
-    const chordFrequencies = [261.63, 329.63, 392.0, 523.25, 659.25];
-    chordFrequencies.forEach((freq, idx) => {
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.setValueAtTime(1200, now);
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, now + 0.52 + idx * 0.03);
-      const startTime = now + 0.52 + idx * 0.03;
-      const duration = 1.1;
-      gain.gain.setValueAtTime(0.0001, startTime);
-      gain.gain.linearRampToValueAtTime(0.24 / (idx * 0.25 + 1), startTime + 0.05);
-      gain.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
-      osc.connect(filter);
-      filter.connect(gain);
-      gain.connect(masterGain);
-      osc.start(startTime);
-      osc.stop(startTime + duration + 0.05);
-    });
-
-  } catch (e) {
-    console.warn("Synthesizer non-fatal warning:", e);
+export const SOUND_PROFILES = [
+  {
+    id: 'cinematic',
+    label: 'Netflix Ta-Dum',
+    icon: Sparkles,
+    file: '/careconnect-sound-cinematic.wav',
+    desc: 'Deep sub-pulse & rich warm cello bloom'
+  },
+  {
+    id: 'acoustic',
+    label: 'Acoustic Chime',
+    icon: Bell,
+    file: '/careconnect-sound-acoustic.wav',
+    desc: 'Gentle morning harp & soothing bells'
+  },
+  {
+    id: 'heartbeat',
+    label: 'Organic Heartbeat',
+    icon: Heart,
+    file: '/careconnect-sound-heartbeat.wav',
+    desc: 'Authentic lub-dub pulse & ambient warmth'
+  },
+  {
+    id: 'sparkle',
+    label: 'Crystal Sparkle',
+    icon: Music,
+    file: '/careconnect-sound-sparkle.wav',
+    desc: 'Modern airy crystal chime chord'
   }
-};
+];
 
 export const SplashScreen = ({ 
   onFinish, 
   forceShow = false,
-  holdDurationMs = 2600,
+  holdDurationMs = 2800,
   storageKey = 'cc_splash_seen'
 }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [needsGesture, setNeedsGesture] = useState(false);
+  
+  const [selectedSoundId, setSelectedSoundId] = useState(() => {
+    try {
+      return localStorage.getItem('cc_sound_profile') || 'cinematic';
+    } catch {
+      return 'cinematic';
+    }
+  });
+
   const [isMuted, setIsMuted] = useState(() => {
     try {
       return localStorage.getItem('cc_splash_muted') === 'true';
@@ -107,41 +59,33 @@ export const SplashScreen = ({
   });
 
   const audioRef = useRef(null);
-  const audioCtxRef = useRef(null);
   const hasTriggeredAudioRef = useRef(false);
 
-  const attemptPlayAudio = () => {
-    if (isMuted || hasTriggeredAudioRef.current) return;
+  const currentProfile = SOUND_PROFILES.find(p => p.id === selectedSoundId) || SOUND_PROFILES[0];
 
-    // 1. Try HTML5 Audio element first
-    if (audioRef.current) {
-      audioRef.current.volume = 0.65;
-      audioRef.current.currentTime = 0;
-      const playPromise = audioRef.current.play();
+  const playActiveSound = (customFile) => {
+    if (isMuted) return;
 
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            hasTriggeredAudioRef.current = true;
-            setNeedsGesture(false);
-          })
-          .catch((err) => {
-            console.info("Browser autoplay blocked audio until interaction:", err);
-            setNeedsGesture(true);
-            // Fallback try with web audio context
-            try {
-              playSynthesizedChime(audioCtxRef);
-            } catch {}
-          });
-      }
-    } else {
-      // Direct synthesizer attempt
-      try {
-        playSynthesizedChime(audioCtxRef);
-        hasTriggeredAudioRef.current = true;
-      } catch {
-        setNeedsGesture(true);
-      }
+    if (!audioRef.current) {
+      audioRef.current = new Audio();
+    }
+
+    const soundUrl = customFile || currentProfile.file;
+    audioRef.current.src = soundUrl;
+    audioRef.current.volume = 0.70;
+    audioRef.current.currentTime = 0;
+
+    const playPromise = audioRef.current.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          hasTriggeredAudioRef.current = true;
+          setNeedsGesture(false);
+        })
+        .catch((err) => {
+          console.info("Autoplay requires interaction:", err);
+          setNeedsGesture(true);
+        });
     }
   };
 
@@ -159,13 +103,13 @@ export const SplashScreen = ({
       }
     }
 
-    // Try playing audio immediately on mount
-    attemptPlayAudio();
+    // Attempt autoplay on mount
+    playActiveSound();
 
-    // Attach global gesture unlockers (if browser policy blocked initial autoplay)
+    // Attach global gesture unlockers
     const handleFirstGesture = () => {
       if (!hasTriggeredAudioRef.current && !isMuted) {
-        attemptPlayAudio();
+        playActiveSound();
       }
     };
 
@@ -192,13 +136,13 @@ export const SplashScreen = ({
       window.removeEventListener('pointerdown', handleFirstGesture);
       window.removeEventListener('keydown', handleFirstGesture);
       window.removeEventListener('touchstart', handleFirstGesture);
-      if (audioCtxRef.current && audioCtxRef.current.state !== 'closed') {
+      if (audioRef.current) {
         try {
-          audioCtxRef.current.close();
+          audioRef.current.pause();
         } catch {}
       }
     };
-  }, [holdDurationMs, forceShow, storageKey, isMuted]);
+  }, [holdDurationMs, forceShow, storageKey, isMuted, selectedSoundId]);
 
   const handleDismiss = () => {
     if (isFadingOut) return;
@@ -223,9 +167,24 @@ export const SplashScreen = ({
 
     if (!nextMuted) {
       hasTriggeredAudioRef.current = false;
-      attemptPlayAudio();
-      playSynthesizedChime(audioCtxRef);
+      playActiveSound();
     }
+  };
+
+  const changeSoundProfile = (e, profile) => {
+    e.stopPropagation();
+    setSelectedSoundId(profile.id);
+    try {
+      localStorage.setItem('cc_sound_profile', profile.id);
+    } catch {}
+
+    // Unmute if muted and play selected sound preview immediately
+    setIsMuted(false);
+    try {
+      localStorage.setItem('cc_splash_muted', 'false');
+    } catch {}
+    
+    playActiveSound(profile.file);
   };
 
   if (!isVisible) return null;
@@ -233,16 +192,15 @@ export const SplashScreen = ({
   return (
     <div
       onClick={(e) => {
-        // If audio was pending gesture, play it and don't dismiss immediately on first tap
+        // If user tapped to unlock sound, don't dismiss immediately
         if (needsGesture && !hasTriggeredAudioRef.current) {
-          attemptPlayAudio();
-          playSynthesizedChime(audioCtxRef);
+          playActiveSound();
           setNeedsGesture(false);
           return;
         }
         handleDismiss();
       }}
-      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#FAF8F5] select-none cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
+      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-between py-6 px-4 bg-[#FAF8F5] select-none cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
         isFadingOut
           ? 'opacity-0 scale-106 blur-xs pointer-events-none'
           : 'opacity-100 scale-100 blur-0'
@@ -250,75 +208,108 @@ export const SplashScreen = ({
       style={{
         background: 'radial-gradient(ellipse at center, #FFFFFF 0%, #FAF8F5 70%, #F5F1E8 100%)'
       }}
-      aria-label="CareConnect Dynamic Intro Animation with Sound"
+      aria-label="CareConnect Dynamic Intro Animation with Sound Selection"
     >
-      {/* Hidden Native Audio Element */}
-      <audio
-        ref={audioRef}
-        src="/careconnect-chime.wav"
-        preload="auto"
-        playsInline
-      />
+      {/* Top Action Bar */}
+      <div className="w-full max-w-7xl mx-auto flex items-center justify-between z-20">
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-[#E2ECE9] text-[11px] font-bold text-[#132E27]">
+          <Radio size={13} className="text-primary animate-pulse" />
+          <span>CareConnect Audio Experience</span>
+        </div>
 
-      {/* Top Action Bar (Audio Mute Toggle + Skip Button) */}
-      <div className="absolute top-6 right-6 z-20 flex items-center gap-2">
-        {/* Audio Mute / Unmute Button */}
-        <button
-          type="button"
-          onClick={toggleMute}
-          className={`flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-bold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer border ${
-            isMuted 
-              ? 'bg-slate-100/90 text-slate-500 border-slate-300' 
-              : 'bg-orange-50 text-[#E8703A] border-orange-200 hover:bg-orange-100'
-          }`}
-          title={isMuted ? "Unmute Intro Sound" : "Mute Intro Sound"}
-          aria-label={isMuted ? "Unmute Sound" : "Mute Sound"}
-        >
-          {isMuted ? <VolumeX size={15} /> : <Volume2 size={15} className="animate-pulse text-[#E8703A]" />}
-          <span>{isMuted ? 'Muted' : 'Sound On'}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Mute Toggle */}
+          <button
+            type="button"
+            onClick={toggleMute}
+            className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border ${
+              isMuted 
+                ? 'bg-slate-100/90 text-slate-500 border-slate-300' 
+                : 'bg-orange-50 text-[#E8703A] border-orange-200 hover:bg-orange-100'
+            }`}
+            title={isMuted ? "Unmute Intro Sound" : "Mute Intro Sound"}
+          >
+            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="animate-pulse text-[#E8703A]" />}
+            <span>{isMuted ? 'Muted' : 'Sound On'}</span>
+          </button>
 
-        {/* Skip Button */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            handleDismiss();
-          }}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/80 hover:bg-white text-[#132E27] text-xs font-semibold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer border border-[#E2ECE9]"
-        >
-          <span>Skip</span>
-          <ArrowRight size={13} />
-        </button>
+          {/* Skip Button */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleDismiss();
+            }}
+            className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-white/80 hover:bg-white text-[#132E27] text-xs font-semibold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border border-[#E2ECE9]"
+          >
+            <span>Skip</span>
+            <ArrowRight size={13} />
+          </button>
+        </div>
       </div>
 
-      {/* Cinematic Flash & Aura Glow (Netflix-Style Warm Pulse) */}
+      {/* Cinematic Flash & Aura Glow */}
       <div className="absolute w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-orange-400/25 via-amber-300/20 to-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-netflix-aura"></div>
 
-      {/* Wide Logo Lockup Container */}
-      <div className="relative z-10 w-[92vw] sm:w-[85vw] max-w-[860px] mx-auto px-4 sm:px-8 py-6 flex flex-col items-center justify-center text-center">
+      {/* Center Animated Logo Lockup */}
+      <div className="relative z-10 w-[92vw] sm:w-[85vw] max-w-[860px] mx-auto px-4 sm:px-8 flex flex-col items-center justify-center text-center my-auto">
         
-        {/* Full-Spread High-Resolution Animated Lockup */}
+        {/* Animated Brand Emblem */}
         <div className="w-full flex items-center justify-center animate-netflix-pop-in drop-shadow-xl">
           <img
             src="/careconnect-logo.png"
             alt="CareConnect Logo"
-            className="w-full max-h-[380px] sm:max-h-[460px] md:max-h-[520px] object-contain select-none"
+            className="w-full max-h-[340px] sm:max-h-[420px] md:max-h-[480px] object-contain select-none"
           />
         </div>
 
-        {/* Ambient Subtle Shimmer Line */}
-        <div className="mt-6 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full animate-netflix-categories"></div>
+        {/* Ambient Subtle Shimmer */}
+        <div className="mt-4 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full animate-netflix-categories"></div>
 
-        {/* Browser Gesture Hint (Only shown if browser blocked autoplay before gesture) */}
+        {/* Autoplay unlock prompt (if browser blocked sound) */}
         {needsGesture && !isMuted && (
-          <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-100/90 text-orange-900 border border-orange-200 text-[11px] font-bold animate-bounce shadow-xs">
-            <Volume2 size={13} className="text-orange-600" />
-            <span>Click anywhere to hear intro chime</span>
+          <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-100/90 text-orange-900 border border-orange-200 text-xs font-bold animate-bounce shadow-xs">
+            <Volume2 size={14} className="text-orange-600" />
+            <span>Click anywhere to play intro chime</span>
           </div>
         )}
 
       </div>
+
+      {/* Bottom Sound Style Selector Bar */}
+      <div 
+        onClick={(e) => e.stopPropagation()}
+        className="relative z-20 w-full max-w-2xl mx-auto p-2 sm:p-2.5 rounded-2xl bg-white/85 backdrop-blur-lg border border-[#E2ECE9] shadow-md flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
+      >
+        <div className="flex items-center gap-1.5 px-2 text-[#132E27] font-bold text-[11px] whitespace-nowrap">
+          <Music size={13} className="text-primary" />
+          <span>Sound Effect:</span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:flex items-center gap-1.5 w-full sm:w-auto">
+          {SOUND_PROFILES.map((profile) => {
+            const Icon = profile.icon;
+            const isSelected = selectedSoundId === profile.id;
+            return (
+              <button
+                key={profile.id}
+                type="button"
+                onClick={(e) => changeSoundProfile(e, profile)}
+                className={`px-3 py-1.5 rounded-xl font-bold text-[11px] transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                  isSelected
+                    ? 'bg-primary text-white shadow-xs scale-105'
+                    : 'bg-[#F4F1EA] text-[#132E27] hover:bg-[#EAE4D8]'
+                }`}
+                title={profile.desc}
+              >
+                <Icon size={12} />
+                <span>{profile.label}</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
     </div>
   );
 };
