@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Heart } from 'lucide-react';
 
 export const SplashScreen = ({ 
   onFinish, 
   forceShow = false,
-  holdDurationMs = 2000,
+  holdDurationMs = 2300,
   storageKey = 'cc_splash_seen'
 }) => {
   const [isVisible, setIsVisible] = useState(true);
@@ -24,7 +24,7 @@ export const SplashScreen = ({
       }
     }
 
-    // Sequence: Animate In -> Hold for ~2s -> Fade out smoothly over 0.5s
+    // Dynamic sequence: Zoom pop -> Wordmark slide -> Taglines reveal -> Hold -> Smooth Dissolve
     const holdTimer = setTimeout(() => {
       handleDismiss();
     }, holdDurationMs);
@@ -53,7 +53,7 @@ export const SplashScreen = ({
     setTimeout(() => {
       setIsVisible(false);
       if (onFinish) onFinish();
-    }, 450); // Matches transition duration
+    }, 500); // 0.5s smooth crossfade
   };
 
   if (!isVisible) return null;
@@ -61,55 +61,48 @@ export const SplashScreen = ({
   return (
     <div
       onClick={handleDismiss}
-      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-white select-none cursor-pointer transition-all duration-500 ease-out ${
+      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#FAF8F5] select-none cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
         isFadingOut
-          ? 'opacity-0 scale-105 pointer-events-none'
-          : 'opacity-100 scale-100'
+          ? 'opacity-0 scale-106 blur-xs pointer-events-none'
+          : 'opacity-100 scale-100 blur-0'
       }`}
       style={{
-        background: 'radial-gradient(circle at center, #FFFFFF 0%, #FAF8F5 100%)'
+        background: 'radial-gradient(ellipse at center, #FFFFFF 0%, #FAF8F5 70%, #F5F1E8 100%)'
       }}
-      aria-label="CareConnect Intro Splash Screen"
+      aria-label="CareConnect Dynamic Intro Animation"
     >
       {/* Top Skip Button */}
-      <div className="absolute top-6 right-6 z-10">
+      <div className="absolute top-6 right-6 z-20">
         <button
           type="button"
           onClick={(e) => {
             e.stopPropagation();
             handleDismiss();
           }}
-          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-slate-100/90 hover:bg-slate-200 text-slate-700 text-xs font-semibold backdrop-blur-xs transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border border-slate-200/60"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/80 hover:bg-white text-[#132E27] text-xs font-semibold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer border border-[#E2ECE9]"
         >
           <span>Skip</span>
           <ArrowRight size={13} />
         </button>
       </div>
 
-      {/* Center Animated Logo & Branding Container */}
-      <div className="relative flex flex-col items-center justify-center p-6 text-center max-w-xl mx-auto">
-        
-        {/* Ambient Soft Glow Behind Logo */}
-        <div className="absolute -inset-10 bg-orange-400/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+      {/* Cinematic Flash & Aura Glow (Netflix-Style Warm Flash) */}
+      <div className="absolute w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-orange-400/25 via-amber-300/20 to-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-netflix-aura"></div>
 
-        {/* Logo Image with Smooth Scale + Fade Entrance Animation */}
-        <div className="relative transform animate-splash-logo-in">
+      {/* Wide Logo Lockup Container (Edge-to-Edge Desktop Span) */}
+      <div className="relative z-10 w-[92vw] sm:w-[85vw] max-w-[860px] mx-auto px-4 sm:px-8 py-6 flex flex-col items-center justify-center text-center">
+        
+        {/* Full-Spread High-Resolution Animated Lockup */}
+        <div className="w-full flex items-center justify-center animate-netflix-pop-in drop-shadow-xl">
           <img
             src="/careconnect-logo.png"
-            alt="CareConnect - Health • Support • Together"
-            className="w-full max-w-[340px] sm:max-w-[480px] md:max-w-[540px] object-contain drop-shadow-md transition-transform"
+            alt="CareConnect Logo"
+            className="w-full max-h-[380px] sm:max-h-[460px] md:max-h-[520px] object-contain select-none"
           />
         </div>
 
-        {/* Subtle Ambient Pulse Bar */}
-        <div className="mt-8 w-44 sm:w-56 h-1 bg-slate-100 rounded-full overflow-hidden relative shadow-inner">
-          <div className="h-full bg-gradient-to-r from-orange-400 via-orange-500 to-emerald-700 rounded-full animate-splash-progress"></div>
-        </div>
-
-        {/* Tap Anywhere Note */}
-        <p className="mt-4 text-[11px] text-slate-400 font-medium tracking-wide">
-          Tap anywhere to continue
-        </p>
+        {/* Ambient Subtle Shimmer Line */}
+        <div className="mt-6 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full animate-netflix-categories"></div>
 
       </div>
     </div>
