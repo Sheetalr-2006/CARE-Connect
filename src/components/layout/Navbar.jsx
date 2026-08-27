@@ -86,13 +86,12 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
             {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
 
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white transition-transform group-hover:scale-105">
-              <Heart className="w-4 h-4 fill-white" />
-            </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900 font-serif">
-              Care<span className="text-primary font-serif">Connect</span>
-            </span>
+          <Link to="/" className="flex items-center gap-2 group py-1" title="CareConnect - Health • Support • Together">
+            <img
+              src="/careconnect-logo.png"
+              alt="CareConnect"
+              className="h-8 sm:h-9 w-auto max-w-[160px] object-contain transition-transform group-hover:scale-105"
+            />
           </Link>
         </div>
 

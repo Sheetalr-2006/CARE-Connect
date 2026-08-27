@@ -4,6 +4,7 @@ import { AuthProvider } from './context/AuthContext';
 import { AppProvider } from './context/AppContext';
 import { Layout } from './components/layout/Layout';
 import { SpecialOfferModal } from './components/modals/SpecialOfferModal';
+import { SplashScreen } from './components/common/SplashScreen';
 
 
 // Auth & Onboarding
@@ -108,6 +109,9 @@ export function App() {
 
           {/* Global Welcome Offer Benefit Popup (Available on Every Page & Route) */}
           <SpecialOfferModal />
+
+          {/* First-Load Animated Splash Intro Screen */}
+          <SplashScreen />
         </BrowserRouter>
       </AppProvider>
     </AuthProvider>

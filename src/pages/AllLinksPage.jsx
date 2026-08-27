@@ -395,14 +395,18 @@ export const AllLinksPage = () => {
       <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-teal-100/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-600 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-teal-500/20">
-              <Compass className="w-6 h-6 animate-spin-slow" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-teal-800 to-emerald-700 bg-clip-text text-transparent">
-                CareConnect All-in-One Directory
+            <Link to="/" className="flex items-center gap-2 group" title="CareConnect Home">
+              <img
+                src="/careconnect-logo.png"
+                alt="CareConnect Logo"
+                className="h-9 w-auto max-w-[170px] object-contain transition-transform group-hover:scale-105"
+              />
+            </Link>
+            <div className="hidden sm:block border-l border-slate-200 pl-3">
+              <h1 className="text-base font-bold text-slate-800">
+                All-in-One Directory
               </h1>
-              <p className="text-xs text-slate-500 font-medium">
+              <p className="text-[11px] text-slate-500 font-medium">
                 Complete Interactive Sitemap & Route Hub ({totalLinksCount} Available Pages)
               </p>
             </div>
