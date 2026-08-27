@@ -18,6 +18,7 @@ import {
   HeartHandshake,
   Heart
 } from 'lucide-react';
+import PhoneInput from '../common/PhoneInput';
 
 export const AuthDrawerModal = () => {
   const { login, registerUser, availableDemoUsers } = useAuth();
@@ -350,29 +351,26 @@ export const AuthDrawerModal = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="space-y-1">
-                      <label className="text-xs font-semibold text-slate-700">Email Address *</label>
-                      <input
-                        type="email"
-                        required
-                        value={regForm.email}
-                        onChange={(e) => setRegForm({ ...regForm, email: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:ring-2 focus:ring-primary focus:outline-none"
-                        placeholder="name@example.com"
-                      />
-                    </div>
-                    <div className="space-y-1">
-                      <label className="text-xs font-semibold text-slate-700">Phone Number *</label>
-                      <input
-                        type="tel"
-                        required
-                        value={regForm.phone}
-                        onChange={(e) => setRegForm({ ...regForm, phone: e.target.value })}
-                        className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:ring-2 focus:ring-primary focus:outline-none"
-                        placeholder="+1 (555) 000-0000"
-                      />
-                    </div>
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-700">Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      value={regForm.email}
+                      onChange={(e) => setRegForm({ ...regForm, email: e.target.value })}
+                      className="w-full px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-800 focus:ring-2 focus:ring-primary focus:outline-none"
+                      placeholder="name@example.com"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <label className="text-xs font-semibold text-slate-700">Phone Number with Country Code *</label>
+                    <PhoneInput
+                      required
+                      value={regForm.phone}
+                      onChange={(val) => setRegForm({ ...regForm, phone: val })}
+                      placeholder="Mobile phone number"
+                    />
                   </div>
 
                   <div className="space-y-1">
