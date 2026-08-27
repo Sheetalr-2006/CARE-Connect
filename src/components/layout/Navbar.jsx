@@ -19,7 +19,9 @@ import {
   Users,
   HeartHandshake,
   Check,
-  Gift
+  Gift,
+  UserPlus,
+  KeyRound
 } from 'lucide-react';
 import { SUPPORTED_LANGUAGES } from '../../utils/translations';
 
@@ -310,15 +312,33 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
                     <Shield size={14} className="text-slate-400" />
                     <span>Care Plans</span>
                   </Link>
+                  <Link
+                    to="/auth/register"
+                    onClick={() => setIsProfileDropdownOpen(false)}
+                    className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs text-primary font-semibold hover:bg-orange-50 transition-colors"
+                  >
+                    <UserPlus size={14} className="text-primary" />
+                    <span>Create New Account</span>
+                  </Link>
                 </div>
-                <div className="pt-1 border-t border-slate-100">
+                <div className="pt-1 border-t border-slate-100 space-y-0.5">
+                  <button
+                    onClick={() => {
+                      setIsProfileDropdownOpen(false);
+                      setIsAuthDrawerOpen(true);
+                    }}
+                    className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs text-slate-700 hover:bg-slate-50 transition-colors font-medium cursor-pointer"
+                  >
+                    <KeyRound size={14} className="text-slate-400" />
+                    <span>Sign In / Register Drawer</span>
+                  </button>
                   <button
                     onClick={() => {
                       logout();
                       setIsProfileDropdownOpen(false);
                       navigate('/auth/login');
                     }}
-                    className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs text-rose-600 hover:bg-rose-50 transition-colors font-medium"
+                    className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs text-rose-600 hover:bg-rose-50 transition-colors font-medium cursor-pointer"
                   >
                     <LogOut size={14} />
                     <span>Sign Out</span>

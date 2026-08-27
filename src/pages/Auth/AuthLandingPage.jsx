@@ -711,12 +711,21 @@ export const AuthLandingPage = () => {
               )}
             </div>
 
+            <Link
+              to="/auth/register"
+              className="hidden sm:inline-flex h-9 px-3.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-primary text-xs font-bold transition-all items-center justify-center cursor-pointer border border-emerald-200/60 active:scale-95"
+              title="Create New CareConnect Account"
+            >
+              Register
+            </Link>
+
             <button
               type="button"
               onClick={() => setIsAuthDrawerOpen(true)}
-              className="h-9 px-4 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold shadow-xs transition-all flex items-center justify-center cursor-pointer active:scale-95"
+              className="h-9 px-4 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold shadow-xs transition-all flex items-center justify-center cursor-pointer active:scale-95 gap-1.5"
+              title="Sign In or Register via Drawer"
             >
-              Sign In
+              <span>Sign In / Up</span>
             </button>
           </div>
         </div>
