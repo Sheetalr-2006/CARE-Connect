@@ -83,6 +83,15 @@ export const AllLinksPage = () => {
           role: 'All'
         },
         {
+          name: 'The Station — Coworking Space Showcase',
+          path: '/the-station',
+          description: 'Single-page website in warm Vanilla & Moonstone palette with illustrated panels & booking bar',
+          badge: 'Coworking Site',
+          badgeColor: 'bg-amber-100 text-amber-800 border-amber-200 font-bold',
+          icon: Building,
+          role: 'Public'
+        },
+        {
           name: 'Main Senior Dashboard',
           path: '/dashboard',
           description: 'Elderly view with quick SOS, daily health, medication reminders & appointments',

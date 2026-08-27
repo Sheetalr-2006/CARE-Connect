@@ -40,6 +40,9 @@ import { Notifications } from './pages/Notifications';
 import { Settings } from './pages/Settings';
 import { AllLinksPage } from './pages/AllLinksPage';
 
+// The Station Coworking Space Showcase
+import { TheStationPage } from './pages/TheStation/TheStationPage';
+
 export function App() {
   return (
     <AuthProvider>
@@ -48,6 +51,11 @@ export function App() {
           <Routes>
             {/* FIRST PAGE: Login & Registration Portal */}
             <Route path="/" element={<AuthLandingPage />} />
+            
+            {/* The Station Coworking Space Single-Page */}
+            <Route path="/the-station" element={<TheStationPage />} />
+            <Route path="/station" element={<TheStationPage />} />
+            <Route path="/coworking" element={<TheStationPage />} />
             
             {/* Dedicated Auth & Onboarding Routes */}
             <Route path="/auth/login" element={<LoginPage />} />

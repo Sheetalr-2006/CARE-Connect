@@ -126,6 +126,7 @@ export const AuthLandingPage = () => {
       description: 'Dedicated interfaces for seniors, family guardians, and volunteers',
       links: [
         { name: 'Home & Welcome Portal', path: '/', description: 'Official welcome portal & service overview', badge: 'Public', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', icon: Home },
+        { name: 'The Station — Coworking Space Showcase', path: '/the-station', description: 'Single-page coworking space website in Vanilla & Moonstone palette', badge: 'Coworking Site', badgeColor: 'bg-amber-100 text-amber-800 border-amber-200 font-bold', icon: Sparkles },
         { name: 'Senior Member Dashboard', path: '/dashboard', description: 'Senior view with SOS, daily health, medication & appointments', badge: 'Senior', badgeColor: 'bg-rose-100 text-rose-800 border-rose-200', icon: Heart },
         { name: 'Family Guardian Dashboard', path: '/family-dashboard', description: 'Real-time telemetry, peace of mind metrics & family updates', badge: 'Family', badgeColor: 'bg-blue-100 text-blue-800 border-blue-200', icon: Users },
         { name: 'Volunteer Companion Dashboard', path: '/volunteer-dashboard', description: 'Assigned seniors, visit schedules & check-in reporting', badge: 'Volunteer', badgeColor: 'bg-amber-100 text-amber-800 border-amber-200', icon: UserCheck },
