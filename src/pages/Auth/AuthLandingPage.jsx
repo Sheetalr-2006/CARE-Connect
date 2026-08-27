@@ -713,20 +713,19 @@ export const AuthLandingPage = () => {
 
             <Link
               to="/auth/register"
-              className="hidden sm:inline-flex h-9 px-3.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-primary text-xs font-bold transition-all items-center justify-center cursor-pointer border border-emerald-200/60 active:scale-95"
+              className="h-9 px-3.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-primary text-xs font-bold transition-all inline-flex items-center justify-center cursor-pointer border border-emerald-200/60 active:scale-95"
               title="Create New CareConnect Account"
             >
               Register
             </Link>
 
-            <button
-              type="button"
-              onClick={() => setIsAuthDrawerOpen(true)}
-              className="h-9 px-4 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold shadow-xs transition-all flex items-center justify-center cursor-pointer active:scale-95 gap-1.5"
-              title="Sign In or Register via Drawer"
+            <Link
+              to="/auth/login"
+              className="h-9 px-4 rounded-lg bg-primary hover:bg-primary-hover text-white text-xs font-semibold shadow-xs transition-all inline-flex items-center justify-center cursor-pointer active:scale-95"
+              title="Sign In to Your Account"
             >
-              <span>Sign In / Up</span>
-            </button>
+              Sign In
+            </Link>
           </div>
         </div>
 
@@ -765,6 +764,23 @@ export const AuthLandingPage = () => {
                 )}
               </button>
             ))}
+
+            <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2">
+              <Link
+                to="/auth/login"
+                onClick={() => setIsMobileNavOpen(false)}
+                className="py-2.5 rounded-xl bg-primary text-white text-xs font-bold text-center shadow-xs"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/auth/register"
+                onClick={() => setIsMobileNavOpen(false)}
+                className="py-2.5 rounded-xl bg-emerald-50 text-primary border border-emerald-200 text-xs font-bold text-center"
+              >
+                Register
+              </Link>
+            </div>
           </div>
         )}
       </header>
@@ -842,21 +858,28 @@ export const AuthLandingPage = () => {
               </p>
 
               {/* Hero CTAs */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <button
-                  type="button"
-                  onClick={scrollTo('quick-booking')}
-                  className="h-12 px-7 rounded-full bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-ambient transition-all active:scale-95 flex items-center justify-center cursor-pointer"
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                <Link
+                  to="/auth/register"
+                  className="h-12 px-7 rounded-full bg-primary hover:bg-primary-hover text-white text-sm font-bold shadow-ambient transition-all active:scale-95 flex items-center justify-center cursor-pointer gap-2"
                 >
-                  Book Care Service
-                </button>
+                  <span>Create Account / Register</span>
+                  <ArrowRight size={16} />
+                </Link>
+
+                <Link
+                  to="/auth/login"
+                  className="h-12 px-6 rounded-full bg-emerald-50 hover:bg-emerald-100 text-primary border border-emerald-300/80 text-sm font-bold transition-all flex items-center gap-2 shadow-xs group"
+                >
+                  <Lock size={15} />
+                  <span>Sign In</span>
+                </Link>
                 
                 <Link
                   to="/volunteer-matching"
-                  className="h-12 px-7 rounded-full bg-white hover:bg-[#F8F9FA] text-[#1A1D20] border border-[#CBD5E1] text-sm font-bold transition-all flex items-center gap-2 shadow-xs group"
+                  className="h-12 px-6 rounded-full bg-white hover:bg-[#F8F9FA] text-[#1A1D20] border border-[#CBD5E1] text-sm font-bold transition-all flex items-center gap-2 shadow-xs group"
                 >
                   <span>Find Companions</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-primary" />
                 </Link>
               </div>
 
