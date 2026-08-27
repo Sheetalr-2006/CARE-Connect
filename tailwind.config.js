@@ -8,77 +8,80 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Vibrant Tangerine & Warm Orange
-        "primary": "#FF5A1F",
-        "primary-hover": "#E64A19",
-        "primary-container": "#FFE8DF",
-        "primary-fixed": "#FFE8DF",
-        "primary-fixed-dim": "#FFCCBA",
+        // Moonstone Cyan & Deep Oceanic Teal (Primary Accents)
+        "primary": "#336E7D",
+        "primary-hover": "#24535F",
+        "primary-light": "#4C9DB0",
+        "primary-container": "#E0F2F6",
+        "primary-fixed": "#FFEBAF",
+        "primary-fixed-dim": "#FFF6DE",
         "on-primary": "#ffffff",
-        "on-primary-container": "#7C2200",
-        "on-primary-fixed": "#7C2200",
-        "on-primary-fixed-variant": "#FF5A1F",
-        "inverse-primary": "#FFB59D",
+        "on-primary-container": "#16323B",
+        "on-primary-fixed": "#1F4550",
+        "on-primary-fixed-variant": "#336E7D",
+        "inverse-primary": "#99C9D4",
 
-        // Deep Modern Charcoal Slate (Headings & Dark Elements)
-        "secondary": "#1E2229",
-        "secondary-container": "#F1F5F9",
-        "secondary-fixed": "#E2E8F0",
-        "secondary-fixed-dim": "#CBD5E1",
+        // Dark Ink Teal (Headings, Buttons & Bold UI Elements)
+        "secondary": "#1F4550",
+        "secondary-hover": "#16323B",
+        "secondary-container": "#FFF6DE",
+        "secondary-fixed": "#E8D49E",
+        "secondary-fixed-dim": "#E5DAC0",
         "on-secondary": "#ffffff",
-        "on-secondary-container": "#0F172A",
-        "on-secondary-fixed": "#0F172A",
-        "on-secondary-fixed-variant": "#1E2229",
+        "on-secondary-container": "#1F4550",
+        "on-secondary-fixed": "#16323B",
+        "on-secondary-fixed-variant": "#1F4550",
 
-        // Warm Coral & Amber Accents
-        "tertiary": "#F97316",
-        "tertiary-container": "#FFF1EC",
-        "tertiary-fixed": "#FFE8DF",
-        "tertiary-fixed-dim": "#FFD7C9",
+        // Warm Vanilla & Honey Amber Accents
+        "tertiary": "#4C9DB0",
+        "tertiary-hover": "#3A8293",
+        "tertiary-container": "#FFEBAF",
+        "tertiary-fixed": "#FFF6DE",
+        "tertiary-fixed-dim": "#EADDBF",
         "on-tertiary": "#ffffff",
-        "on-tertiary-container": "#7C2200",
-        "on-tertiary-fixed": "#7C2200",
-        "on-tertiary-fixed-variant": "#F97316",
+        "on-tertiary-container": "#1F4550",
+        "on-tertiary-fixed": "#1F4550",
+        "on-tertiary-fixed-variant": "#336E7D",
 
-        // Studio Clean Canvas & Card Backgrounds
-        "background": "#FFFFFF",
-        "on-background": "#1A1D20",
+        // Warm Vanilla & Off-White Canvas Backgrounds
+        "background": "#FFFDF7",
+        "on-background": "#1F4550",
 
-        "surface": "#FFFFFF",
+        "surface": "#FFFDF7",
         "surface-bright": "#FFFFFF",
-        "surface-dim": "#F8F9FA",
+        "surface-dim": "#FFF6DE",
         "surface-container-lowest": "#FFFFFF",
-        "surface-container-low": "#F8F9FA",
-        "surface-container": "#F1F5F9",
-        "surface-container-high": "#E2E8F0",
-        "surface-container-highest": "#CBD5E1",
-        "surface-variant": "#F1F5F9",
-        "surface-tint": "#FF5A1F",
-        "on-surface": "#1A1D20",
-        "on-surface-variant": "#64748B",
-        "inverse-surface": "#1A1D20",
-        "inverse-on-surface": "#F8F9FA",
-        "outline": "#CBD5E1",
-        "outline-variant": "#E2E8F0",
+        "surface-container-low": "#FFFDF7",
+        "surface-container": "#FFF6DE",
+        "surface-container-high": "#FFEBAF",
+        "surface-container-highest": "#EADDBF",
+        "surface-variant": "#F4EEDC",
+        "surface-tint": "#336E7D",
+        "on-surface": "#1F4550",
+        "on-surface-variant": "#587882",
+        "inverse-surface": "#1F4550",
+        "inverse-on-surface": "#FFFDF7",
+        "outline": "#DED6C0",
+        "outline-variant": "#EFE9DA",
 
-        // System & Medical status indicators
+        // Status Indicators
         "error": "#BA1A1A",
         "error-container": "#FFDAD6",
         "on-error": "#ffffff",
         "on-error-container": "#410002",
 
-        "success": "#2E7D32",
-        "success-container": "#E8F5E9",
+        "success": "#2D7D62",
+        "success-container": "#D6F2E7",
         "on-success": "#ffffff"
       },
       fontFamily: {
-        serif: ["'ATC PINE'", "'ATC Pine'", "Georgia", "serif"],
-        sans: ["'ATC PINE'", "'ATC Pine'", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
+        serif: ["Georgia", "'ATC PINE'", "'ATC Pine'", "serif"],
+        sans: ["Inter", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
       },
       boxShadow: {
-        "ambient": "0 8px 30px rgba(255, 90, 31, 0.12)",
-        "card": "0 2px 12px rgba(30, 34, 41, 0.04), 0 1px 3px rgba(30, 34, 41, 0.02)",
-        "elevated": "0 20px 40px -15px rgba(30, 34, 41, 0.1), 0 0 1px 1px rgba(30, 34, 41, 0.05)"
+        "ambient": "0 8px 30px rgba(51, 110, 125, 0.15)",
+        "card": "0 2px 12px rgba(31, 69, 80, 0.05), 0 1px 3px rgba(31, 69, 80, 0.03)",
+        "elevated": "0 20px 40px -15px rgba(31, 69, 80, 0.12), 0 0 1px 1px rgba(31, 69, 80, 0.06)"
       }
     },
   },
