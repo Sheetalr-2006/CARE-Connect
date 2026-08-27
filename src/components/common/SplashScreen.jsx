@@ -1,34 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Volume2, VolumeX, Sparkles, Music, Heart, Bell, Radio } from 'lucide-react';
+import { ArrowRight, Volume2, VolumeX, Sparkles, Music, Heart, Bell, Feather, Sun, Coffee } from 'lucide-react';
 
-export const SOUND_PROFILES = [
+export const SENIOR_PLEASANT_SOUNDS = [
   {
-    id: 'cinematic',
-    label: 'Netflix Ta-Dum',
-    icon: Sparkles,
-    file: '/careconnect-sound-cinematic.wav',
-    desc: 'Deep sub-pulse & rich warm cello bloom'
-  },
-  {
-    id: 'acoustic',
-    label: 'Acoustic Chime',
+    id: 'sanctuary',
+    label: 'Peaceful Sanctuary',
     icon: Bell,
-    file: '/careconnect-sound-acoustic.wav',
-    desc: 'Gentle morning harp & soothing bells'
+    file: '/careconnect-sound-sanctuary.wav',
+    desc: 'Soft warm bell & soothing singing bowl harmony'
   },
   {
-    id: 'heartbeat',
-    label: 'Organic Heartbeat',
-    icon: Heart,
-    file: '/careconnect-sound-heartbeat.wav',
-    desc: 'Authentic lub-dub pulse & ambient warmth'
+    id: 'harp',
+    label: 'Morning Harp',
+    icon: Sun,
+    file: '/careconnect-sound-harp.wav',
+    desc: 'Delicate acoustic harp rolling notes'
   },
   {
-    id: 'sparkle',
-    label: 'Crystal Sparkle',
-    icon: Music,
-    file: '/careconnect-sound-sparkle.wav',
-    desc: 'Modern airy crystal chime chord'
+    id: 'piano',
+    label: 'Warm Felt Piano',
+    icon: Coffee,
+    file: '/careconnect-sound-piano.wav',
+    desc: 'Gentle, comforting acoustic piano chord'
+  },
+  {
+    id: 'zen',
+    label: 'Zen Chimes',
+    icon: Feather,
+    file: '/careconnect-sound-zen.wav',
+    desc: 'Calming 432Hz tranquil wind chimes'
   }
 ];
 
@@ -44,9 +44,9 @@ export const SplashScreen = ({
   
   const [selectedSoundId, setSelectedSoundId] = useState(() => {
     try {
-      return localStorage.getItem('cc_sound_profile') || 'cinematic';
+      return localStorage.getItem('cc_sound_profile') || 'sanctuary';
     } catch {
-      return 'cinematic';
+      return 'sanctuary';
     }
   });
 
@@ -61,7 +61,7 @@ export const SplashScreen = ({
   const audioRef = useRef(null);
   const hasTriggeredAudioRef = useRef(false);
 
-  const currentProfile = SOUND_PROFILES.find(p => p.id === selectedSoundId) || SOUND_PROFILES[0];
+  const currentProfile = SENIOR_PLEASANT_SOUNDS.find(p => p.id === selectedSoundId) || SENIOR_PLEASANT_SOUNDS[0];
 
   const playActiveSound = (customFile) => {
     if (isMuted) return;
@@ -72,7 +72,8 @@ export const SplashScreen = ({
 
     const soundUrl = customFile || currentProfile.file;
     audioRef.current.src = soundUrl;
-    audioRef.current.volume = 0.70;
+    // Pleasant, gentle listening level tailored for sensitive hearing
+    audioRef.current.volume = 0.52;
     audioRef.current.currentTime = 0;
 
     const playPromise = audioRef.current.play();
@@ -151,6 +152,20 @@ export const SplashScreen = ({
       sessionStorage.setItem(storageKey, 'true');
     } catch (e) {}
 
+    // Gentle audio volume fade out over 400ms
+    if (audioRef.current && !audioRef.current.paused) {
+      let fadeStep = 0;
+      const initialVol = audioRef.current.volume;
+      const fadeInterval = setInterval(() => {
+        fadeStep += 1;
+        if (audioRef.current && audioRef.current.volume > 0.05) {
+          audioRef.current.volume = Math.max(0, initialVol * (1 - fadeStep / 8));
+        } else {
+          clearInterval(fadeInterval);
+        }
+      }, 45);
+    }
+
     setTimeout(() => {
       setIsVisible(false);
       if (onFinish) onFinish();
@@ -192,7 +207,7 @@ export const SplashScreen = ({
   return (
     <div
       onClick={(e) => {
-        // If user tapped to unlock sound, don't dismiss immediately
+        // If user tapped to unlock sound, play it without instant dismissal
         if (needsGesture && !hasTriggeredAudioRef.current) {
           playActiveSound();
           setNeedsGesture(false);
@@ -208,13 +223,13 @@ export const SplashScreen = ({
       style={{
         background: 'radial-gradient(ellipse at center, #FFFFFF 0%, #FAF8F5 70%, #F5F1E8 100%)'
       }}
-      aria-label="CareConnect Dynamic Intro Animation with Sound Selection"
+      aria-label="CareConnect Calming Intro Animation"
     >
       {/* Top Action Bar */}
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between z-20">
-        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/70 backdrop-blur-md border border-[#E2ECE9] text-[11px] font-bold text-[#132E27]">
-          <Radio size={13} className="text-primary animate-pulse" />
-          <span>CareConnect Audio Experience</span>
+        <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-[#E2ECE9] text-[11px] font-bold text-[#132E27] shadow-xs">
+          <Feather size={13} className="text-primary animate-pulse" />
+          <span>Calming Senior Sound Experience</span>
         </div>
 
         <div className="flex items-center gap-2">
@@ -225,11 +240,11 @@ export const SplashScreen = ({
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border ${
               isMuted 
                 ? 'bg-slate-100/90 text-slate-500 border-slate-300' 
-                : 'bg-orange-50 text-[#E8703A] border-orange-200 hover:bg-orange-100'
+                : 'bg-emerald-50 text-[#0F4C3A] border-emerald-200 hover:bg-emerald-100'
             }`}
             title={isMuted ? "Unmute Intro Sound" : "Mute Intro Sound"}
           >
-            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="animate-pulse text-[#E8703A]" />}
+            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="animate-pulse text-[#0F4C3A]" />}
             <span>{isMuted ? 'Muted' : 'Sound On'}</span>
           </button>
 
@@ -248,8 +263,8 @@ export const SplashScreen = ({
         </div>
       </div>
 
-      {/* Cinematic Flash & Aura Glow */}
-      <div className="absolute w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-orange-400/25 via-amber-300/20 to-emerald-500/15 rounded-full blur-3xl pointer-events-none animate-netflix-aura"></div>
+      {/* Cinematic Soft Glow */}
+      <div className="absolute w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-emerald-400/20 via-amber-300/15 to-orange-400/15 rounded-full blur-3xl pointer-events-none animate-netflix-aura"></div>
 
       {/* Center Animated Logo Lockup */}
       <div className="relative z-10 w-[92vw] sm:w-[85vw] max-w-[860px] mx-auto px-4 sm:px-8 flex flex-col items-center justify-center text-center my-auto">
@@ -264,30 +279,30 @@ export const SplashScreen = ({
         </div>
 
         {/* Ambient Subtle Shimmer */}
-        <div className="mt-4 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-orange-400/50 to-transparent rounded-full animate-netflix-categories"></div>
+        <div className="mt-4 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent rounded-full animate-netflix-categories"></div>
 
         {/* Autoplay unlock prompt (if browser blocked sound) */}
         {needsGesture && !isMuted && (
-          <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-100/90 text-orange-900 border border-orange-200 text-xs font-bold animate-bounce shadow-xs">
-            <Volume2 size={14} className="text-orange-600" />
-            <span>Click anywhere to play intro chime</span>
+          <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-200 text-xs font-bold animate-bounce shadow-xs">
+            <Volume2 size={14} className="text-emerald-700" />
+            <span>Click anywhere to play gentle melody</span>
           </div>
         )}
 
       </div>
 
-      {/* Bottom Sound Style Selector Bar */}
+      {/* Bottom Pleasant Sound Selector Bar */}
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative z-20 w-full max-w-2xl mx-auto p-2 sm:p-2.5 rounded-2xl bg-white/85 backdrop-blur-lg border border-[#E2ECE9] shadow-md flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
+        className="relative z-20 w-full max-w-2xl mx-auto p-2 sm:p-2.5 rounded-2xl bg-white/90 backdrop-blur-lg border border-[#E2ECE9] shadow-md flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
       >
         <div className="flex items-center gap-1.5 px-2 text-[#132E27] font-bold text-[11px] whitespace-nowrap">
-          <Music size={13} className="text-primary" />
-          <span>Sound Effect:</span>
+          <Feather size={13} className="text-primary" />
+          <span>Gentle Melody:</span>
         </div>
 
         <div className="grid grid-cols-2 sm:flex items-center gap-1.5 w-full sm:w-auto">
-          {SOUND_PROFILES.map((profile) => {
+          {SENIOR_PLEASANT_SOUNDS.map((profile) => {
             const Icon = profile.icon;
             const isSelected = selectedSoundId === profile.id;
             return (
