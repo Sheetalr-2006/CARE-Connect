@@ -17,11 +17,12 @@ import {
   User,
   HeartHandshake,
   Compass,
-  Video
+  Video,
+  Gift
 } from 'lucide-react';
 
 export const Sidebar = ({ onCloseMobile }) => {
-  const { currentElderly, unreadNotificationCount } = useApp();
+  const { currentElderly, unreadNotificationCount, setIsSpecialOfferOpen } = useApp();
   const { currentUser, switchRole, availableDemoUsers } = useAuth();
 
   const navigate = useNavigate();
@@ -240,9 +241,37 @@ export const Sidebar = ({ onCloseMobile }) => {
         </nav>
       </div>
 
+      {/* Welcome Offer 15% Off Promo Card in Sidebar */}
+      <div className="pt-4 border-t border-surface-container/70 mt-2">
+        <button
+          type="button"
+          onClick={() => {
+            setIsSpecialOfferOpen(true);
+            if (onCloseMobile) onCloseMobile();
+          }}
+          className="w-full p-3 rounded-2xl bg-gradient-to-tr from-[#FFEBAF] to-[#FFF6DE] border border-[#EADDBF] text-left transition-all hover:scale-[1.02] shadow-xs cursor-pointer group"
+          title="Open -15% Welcome Benefit"
+        >
+          <div className="flex items-center gap-1.5 mb-1">
+            <div className="w-5 h-5 rounded-lg bg-[#E8703A] text-white flex items-center justify-center shadow-xs">
+              <Gift size={12} />
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#E8703A]">
+              Special Offer
+            </span>
+          </div>
+          <p className="text-xs font-bold text-[#1F2A44] font-serif leading-tight">
+            Get -15% Off Care
+          </p>
+          <p className="text-[10px] text-[#5B6B82] mt-0.5 flex items-center justify-between">
+            <span>Code: <strong className="font-mono text-[#E8703A]">CARE15</strong></span>
+            <span className="text-[#E8703A] font-bold group-hover:translate-x-0.5 transition-transform">Claim →</span>
+          </p>
+        </button>
+      </div>
+
       {/* Bottom Footer Info */}
-      <div className="pt-4 mt-6 border-t border-surface-container text-center">
-        <p className="text-[11px] text-on-surface-variant font-medium">CareConnect Screen Isolation</p>
+      <div className="pt-2 text-center">
         <p className="text-[10px] text-outline">Viewing as: {currentUser?.name} ({userRole})</p>
       </div>
 

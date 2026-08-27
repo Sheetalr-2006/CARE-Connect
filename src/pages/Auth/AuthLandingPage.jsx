@@ -650,6 +650,17 @@ export const AuthLandingPage = () => {
           {/* Header Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3">
             
+            {/* Special Offer Trigger Button */}
+            <button
+              type="button"
+              onClick={() => setIsSpecialOfferOpen(true)}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#FFEBAF]/60 hover:bg-[#FFEBAF] text-[#E8703A] border border-[#EADDBF] text-xs font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+              title="Claim -15% Welcome Benefit (CARE15)"
+            >
+              <Gift size={14} className="text-[#E8703A]" />
+              <span className="hidden sm:inline">-15% Offer</span>
+            </button>
+
             {/* Senior Voice Control Trigger */}
             <button
               onClick={() => setIsVoiceAssistantOpen(true)}

@@ -18,7 +18,8 @@ import {
   User,
   Users,
   HeartHandshake,
-  Check
+  Check,
+  Gift
 } from 'lucide-react';
 import { SUPPORTED_LANGUAGES } from '../../utils/translations';
 
@@ -30,7 +31,8 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
     triggerEmergencySOS,
     currentLanguage,
     setLanguage,
-    setIsVoiceAssistantOpen
+    setIsVoiceAssistantOpen,
+    setIsSpecialOfferOpen
   } = useApp();
   
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
@@ -176,10 +178,20 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
             )}
           </div>
 
+          {/* Welcome Offer -15% Discount Trigger Button */}
+          <button
+            onClick={() => setIsSpecialOfferOpen(true)}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#FFEBAF]/50 hover:bg-[#FFEBAF] text-[#E8703A] border border-[#EADDBF] text-xs font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+            title="Claim -15% Welcome Benefit (CARE15)"
+          >
+            <Gift size={14} className="text-[#E8703A]" />
+            <span className="hidden md:inline">-15% Offer</span>
+          </button>
+
           {/* Voice Assistant Icon */}
           <button
             onClick={() => setIsVoiceAssistantOpen(true)}
-            className="p-2 rounded-lg text-slate-500 hover:text-primary hover:bg-slate-50 transition-colors"
+            className="p-2 rounded-lg text-slate-500 hover:text-primary hover:bg-slate-50 transition-colors cursor-pointer"
             title="Open Voice Assistant"
             aria-label="Voice Assistant"
           >
