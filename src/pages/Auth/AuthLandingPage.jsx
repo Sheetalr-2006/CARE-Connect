@@ -50,10 +50,8 @@ import {
   Settings as SettingsIcon,
   Server,
   Bell,
-  Shield,
   UserCheck,
-  Ticket,
-  Gift
+  Ticket
 } from 'lucide-react';
 import { ForgotPasswordModal } from '../../components/modals/ForgotPasswordModal';
 import { SeniorVoiceAssistant } from '../../components/common/SeniorVoiceAssistant';
