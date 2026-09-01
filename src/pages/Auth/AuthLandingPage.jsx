@@ -11,6 +11,7 @@ import {
   ArrowRight,
   ShieldCheck,
   Sparkles,
+  Gift,
   Users,
   HeartHandshake,
   CheckCircle2,
@@ -85,7 +86,7 @@ export const AuthLandingPage = () => {
   const [isForgotModalOpen, setIsForgotModalOpen] = useState(false);
   const [bookingSubmitted, setBookingSubmitted] = useState(false);
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
-  
+
   // Custom Staggered Dropdown States
   const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false);
   const [isPeopleDropdownOpen, setIsPeopleDropdownOpen] = useState(false);
@@ -604,11 +605,11 @@ export const AuthLandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#1A1D20] font-sans selection:bg-primary selection:text-white">
-      
+
       {/* 1. STICKY TOP NAVBAR (Clean, Minimal, Compact) */}
       <header className="border-b border-slate-200/80 bg-white sticky top-0 z-40 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
-          
+
           {/* Brand Logo & Mobile Toggle */}
           <div className="flex items-center gap-3">
             <button
@@ -649,7 +650,7 @@ export const AuthLandingPage = () => {
 
           {/* Header Action CTAs */}
           <div className="flex items-center gap-2 sm:gap-3">
-            
+
             {/* Special Offer Trigger Button */}
             <button
               type="button"
@@ -693,11 +694,10 @@ export const AuthLandingPage = () => {
                           setLanguage(lang.code);
                           setIsLanguageDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-colors flex items-center justify-between ${
-                          currentLanguage === lang.code
-                            ? 'bg-orange-50 text-primary font-semibold'
-                            : 'text-slate-700 hover:bg-slate-50'
-                        }`}
+                        className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs transition-colors flex items-center justify-between ${currentLanguage === lang.code
+                          ? 'bg-orange-50 text-primary font-semibold'
+                          : 'text-slate-700 hover:bg-slate-50'
+                          }`}
                       >
                         <span className="flex items-center gap-2">
                           <span>{lang.flag}</span>
@@ -789,16 +789,16 @@ export const AuthLandingPage = () => {
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* LEFT: 3-Pill Slanted Photo Montage */}
             <div className="lg:col-span-6 relative flex items-center justify-center p-4">
-              
+
               {/* Soft Background Glow Shape */}
               <div className="absolute w-72 h-72 rounded-full bg-[#FFE8DF] blur-3xl -z-10"></div>
 
               {/* 3 Slanted Diagonal Pill Containers with Sequential Entrance */}
               <div className="flex gap-4 sm:gap-6 transform -rotate-6 hover:rotate-0 transition-transform duration-700">
-                
+
                 {/* Pill 1: Blood Pressure Check at Home */}
                 <div className="w-28 sm:w-36 h-72 sm:h-96 rounded-full overflow-hidden shadow-card border-4 border-white transform translate-y-6 hover:scale-105 transition-transform duration-500 bg-[#E2E8F0] animate-fade-in-scale" style={{ animationDelay: '100ms' }}>
                   <img
@@ -831,7 +831,7 @@ export const AuthLandingPage = () => {
 
             {/* RIGHT: Hero Copy & Action CTAs */}
             <div className="lg:col-span-6 space-y-6 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
-              
+
               {/* Header Badge */}
               <div className="flex flex-wrap items-center gap-3">
                 <span className="px-4 py-1.5 rounded-full bg-[#FFE8DF] text-primary text-xs font-bold tracking-wide uppercase shadow-xs">
@@ -912,9 +912,9 @@ export const AuthLandingPage = () => {
       {/* 3. HORIZONTAL QUICK BOOKING BAR (With Custom Staggered Dropdowns) */}
       <section id="quick-booking" className="py-8 lg:py-12 bg-[#F8F9FA] border-y border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="bg-white p-6 sm:p-8 rounded-3xl border border-[#E2E8F0] shadow-card">
-            
+
             <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <span className="text-xs font-bold uppercase tracking-wider text-primary flex items-center gap-2">
                 <Calendar size={16} />
@@ -926,7 +926,7 @@ export const AuthLandingPage = () => {
             </div>
 
             <form onSubmit={handleQuickBookingSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-6 items-end">
-              
+
               {/* Senior Name */}
               <div className="lg:col-span-3 space-y-1.5">
                 <label className="block text-xs font-bold text-[#1A1D20]">Senior's Name *</label>
@@ -971,11 +971,10 @@ export const AuthLandingPage = () => {
                             setIsPeopleDropdownOpen(false);
                           }}
                           style={{ animationDelay: `${idx * 60}ms` }}
-                          className={`w-full text-left p-2.5 rounded-xl text-xs transition-all ${animClass} flex items-center justify-between ${
-                            bookingForm.peopleCount === opt.label
-                              ? 'bg-[#FFE8DF] text-primary font-bold'
-                              : 'text-[#1A1D20] hover:bg-[#F8F9FA]'
-                          }`}
+                          className={`w-full text-left p-2.5 rounded-xl text-xs transition-all ${animClass} flex items-center justify-between ${bookingForm.peopleCount === opt.label
+                            ? 'bg-[#FFE8DF] text-primary font-bold'
+                            : 'text-[#1A1D20] hover:bg-[#F8F9FA]'
+                            }`}
                         >
                           <div>
                             <p className="font-bold">{opt.label}</p>
@@ -1018,11 +1017,10 @@ export const AuthLandingPage = () => {
                             setIsServiceDropdownOpen(false);
                           }}
                           style={{ animationDelay: `${idx * 60}ms` }}
-                          className={`w-full text-left p-2.5 rounded-xl text-xs transition-all ${animClass} flex items-center gap-3 ${
-                            bookingForm.serviceType === opt.label
-                              ? 'bg-[#FFE8DF] text-primary font-bold'
-                              : 'text-[#1A1D20] hover:bg-[#F8F9FA]'
-                          }`}
+                          className={`w-full text-left p-2.5 rounded-xl text-xs transition-all ${animClass} flex items-center gap-3 ${bookingForm.serviceType === opt.label
+                            ? 'bg-[#FFE8DF] text-primary font-bold'
+                            : 'text-[#1A1D20] hover:bg-[#F8F9FA]'
+                            }`}
                         >
                           <div className="w-8 h-8 rounded-lg bg-[#F8F9FA] text-primary flex items-center justify-center flex-shrink-0">
                             <Icon size={16} />
@@ -1080,13 +1078,13 @@ export const AuthLandingPage = () => {
       <section id="about" className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-6">
               <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
                 About Us
               </span>
-              
+
               <h2 className="text-3xl sm:text-4xl font-black text-[#1A1D20] font-serif leading-tight">
                 Empowering Seniors with <br />
                 <span className="text-primary font-serif">Dignity, Joy & Safety</span>
@@ -1159,7 +1157,7 @@ export const AuthLandingPage = () => {
       {/* 5. FRONT PAGE SERVICES DIRECTORY (2. Cards Pop Up Sequentially Staggered ~100-150ms) */}
       <section id="services" className="py-16 sm:py-20 lg:py-24 bg-[#F8F9FA] border-t border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
               Full-Spectrum Elder Support
@@ -1184,7 +1182,7 @@ export const AuthLandingPage = () => {
                   onClick={() => setSelectedServiceForBooking(service)}
                 >
                   <div className="space-y-4">
-                    
+
                     {/* Top Icon & Badge */}
                     <div className="flex items-center justify-between">
                       <div className="w-12 h-12 rounded-2xl bg-[#FFE8DF] text-primary flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -1276,7 +1274,7 @@ export const AuthLandingPage = () => {
       {/* 8. TESTIMONIALS SECTION (Sequential Staggered Pop-Up) */}
       <section id="testimonials" className="py-16 sm:py-20 lg:py-24 border-t border-[#E2E8F0] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
               Verified Reviews
@@ -1336,7 +1334,7 @@ export const AuthLandingPage = () => {
       {/* 9. FAQ ACCORDION SECTION */}
       <section id="faq" className="py-16 sm:py-20 lg:py-24 bg-[#F8F9FA] border-t border-[#E2E8F0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
               Help & Answers
@@ -1383,7 +1381,7 @@ export const AuthLandingPage = () => {
       {/* 10. CONTACT & LOCATION SECTION */}
       <section id="contact" className="py-16 sm:py-20 lg:py-24 border-t border-[#E2E8F0] bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-primary bg-[#FFE8DF] px-3.5 py-1 rounded-full">
               Get in Touch
@@ -1397,11 +1395,11 @@ export const AuthLandingPage = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Contact Info & Map Card */}
             <div className="lg:col-span-5 space-y-6">
               <div className="p-6 sm:p-8 rounded-3xl bg-[#F8F9FA] border border-[#E2E8F0] space-y-6">
-                
+
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-[#FFE8DF] text-primary flex items-center justify-center flex-shrink-0">
                     <MapPin size={20} />
@@ -1438,7 +1436,7 @@ export const AuthLandingPage = () => {
             {/* Right Contact Form */}
             <div className="lg:col-span-7">
               <form onSubmit={handleContactSubmit} className="p-6 sm:p-8 rounded-3xl bg-[#F8F9FA] border border-[#E2E8F0] space-y-4">
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label className="block text-xs font-bold text-[#1A1D20]">Your Name *</label>
@@ -1503,7 +1501,7 @@ export const AuthLandingPage = () => {
       {/* 10. ALL LINKS & SITEMAP DIRECTORY HUB (All 30+ Pages in One Website) */}
       <section id="all-links" className="py-16 sm:py-20 bg-gradient-to-b from-white via-slate-50 to-white border-t border-[#E2E8F0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-          
+
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#E2E8F0] pb-6">
             <div>
@@ -1569,11 +1567,10 @@ export const AuthLandingPage = () => {
                     key={cat.id}
                     type="button"
                     onClick={() => setDirectoryCategory(cat.id)}
-                    className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                      directoryCategory === cat.id
-                        ? 'bg-primary text-white shadow-xs'
-                        : 'bg-[#F8F9FA] border border-[#E2E8F0] text-[#64748B] hover:text-[#1A1D20]'
-                    }`}
+                    className={`px-3 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${directoryCategory === cat.id
+                      ? 'bg-primary text-white shadow-xs'
+                      : 'bg-[#F8F9FA] border border-[#E2E8F0] text-[#64748B] hover:text-[#1A1D20]'
+                      }`}
                   >
                     {cat.label}
                   </button>
@@ -1712,7 +1709,7 @@ export const AuthLandingPage = () => {
       {/* 11. AUTHENTICATION PORTAL (LOGIN & REGISTRATION) */}
       <section id="auth-portal" className="py-16 sm:py-20 lg:py-24 bg-[#F8F9FA] border-t border-[#E2E8F0]">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="bg-white p-8 sm:p-12 rounded-3xl border border-[#E2E8F0] shadow-elevated">
             
             <div className="text-center max-w-lg mx-auto mb-8 space-y-3">
@@ -1740,21 +1737,19 @@ export const AuthLandingPage = () => {
             <div className="flex bg-[#F8F9FA] p-1.5 rounded-2xl max-w-xs mx-auto mb-8 border border-[#E2E8F0]">
               <button
                 onClick={() => setActiveTab('login')}
-                className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'login'
-                    ? 'bg-primary text-white shadow-sm'
-                    : 'text-[#64748B] hover:text-[#1A1D20]'
-                }`}
+                className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all ${activeTab === 'login'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-[#64748B] hover:text-[#1A1D20]'
+                  }`}
               >
                 Sign In
               </button>
               <button
                 onClick={() => setActiveTab('register')}
-                className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all ${
-                  activeTab === 'register'
-                    ? 'bg-primary text-white shadow-sm'
-                    : 'text-[#64748B] hover:text-[#1A1D20]'
-                }`}
+                className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all ${activeTab === 'register'
+                  ? 'bg-primary text-white shadow-sm'
+                  : 'text-[#64748B] hover:text-[#1A1D20]'
+                  }`}
               >
                 New Registration
               </button>
@@ -1788,7 +1783,7 @@ export const AuthLandingPage = () => {
             {/* Tab 1: Sign In Form */}
             {activeTab === 'login' && (
               <form onSubmit={handleLoginSubmit} className="space-y-4">
-                
+
                 {loginError && (
                   <div className="p-3.5 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs font-bold flex items-center gap-2">
                     <AlertCircle size={16} />
@@ -1879,7 +1874,7 @@ export const AuthLandingPage = () => {
             {/* Tab 2: New Registration Form */}
             {activeTab === 'register' && (
               <form onSubmit={handleRegisterSubmit} className="space-y-4">
-                
+
                 {registerError && (
                   <div className="p-3.5 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs font-bold flex items-center gap-2">
                     <AlertCircle size={16} />
@@ -2035,7 +2030,7 @@ export const AuthLandingPage = () => {
       {selectedServiceForBooking && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
           <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-elevated border border-[#E2E8F0] relative max-h-[90vh] overflow-y-auto text-[#1A1D20]">
-            
+
             <button
               onClick={() => setSelectedServiceForBooking(null)}
               className="absolute top-5 right-5 p-2 rounded-xl hover:bg-[#F8F9FA] text-[#64748B] hover:text-[#1A1D20] transition-colors"
@@ -2066,7 +2061,7 @@ export const AuthLandingPage = () => {
               </div>
             ) : (
               <form onSubmit={handleDirectServiceBooking} className="space-y-4">
-                
+
                 <div>
                   <label className="block text-xs font-bold text-[#1A1D20] mb-1">
                     Senior's Name <span className="text-[#BA1A1A]">*</span>
