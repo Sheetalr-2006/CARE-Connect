@@ -50,6 +50,7 @@ import {
   Settings as SettingsIcon,
   Server,
   Bell,
+  Shield,
   UserCheck,
   Ticket
 } from 'lucide-react';
@@ -881,8 +882,74 @@ export const AuthLandingPage = () => {
                 </Link>
               </div>
 
+              {/* Quick Persona 1-Click Test Drive Card */}
+              <div className="p-4 rounded-2xl bg-orange-50/70 border border-orange-200/80 space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-primary flex items-center gap-1.5">
+                    <Sparkles size={14} className="text-primary" />
+                    <span>Instant 1-Click Portal Launch</span>
+                  </span>
+                  <span className="text-[10px] text-orange-900 font-semibold">No password required</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      login('eleanor.vance@example.com', 'demo123', 'elderly');
+                      navigate('/dashboard');
+                    }}
+                    className="p-2.5 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-orange-200 text-[#1A1D20] text-xs font-bold transition-all shadow-xs flex items-center justify-between group cursor-pointer active:scale-95"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>🧓</span>
+                      <span className="text-left leading-tight">
+                        <strong className="block text-[11px]">Senior Portal</strong>
+                        <small className="text-[10px] opacity-75 font-normal">Eleanor Vance</small>
+                      </span>
+                    </span>
+                    <ArrowRight size={13} className="opacity-60 group-hover:translate-x-0.5 group-hover:opacity-100 transition-all" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      login('sarah.vance@example.com', 'demo123', 'family');
+                      navigate('/family-dashboard');
+                    }}
+                    className="p-2.5 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-orange-200 text-[#1A1D20] text-xs font-bold transition-all shadow-xs flex items-center justify-between group cursor-pointer active:scale-95"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>👨‍👩‍👧</span>
+                      <span className="text-left leading-tight">
+                        <strong className="block text-[11px]">Family Portal</strong>
+                        <small className="text-[10px] opacity-75 font-normal">Sarah Vance</small>
+                      </span>
+                    </span>
+                    <ArrowRight size={13} className="opacity-60 group-hover:translate-x-0.5 group-hover:opacity-100 transition-all" />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      login('david.miller@example.com', 'demo123', 'volunteer');
+                      navigate('/volunteer-dashboard');
+                    }}
+                    className="p-2.5 rounded-xl bg-white hover:bg-orange-500 hover:text-white border border-orange-200 text-[#1A1D20] text-xs font-bold transition-all shadow-xs flex items-center justify-between group cursor-pointer active:scale-95"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span>🤝</span>
+                      <span className="text-left leading-tight">
+                        <strong className="block text-[11px]">Volunteer Portal</strong>
+                        <small className="text-[10px] opacity-75 font-normal">David Miller</small>
+                      </span>
+                    </span>
+                    <ArrowRight size={13} className="opacity-60 group-hover:translate-x-0.5 group-hover:opacity-100 transition-all" />
+                  </button>
+                </div>
+              </div>
+
               {/* Social Proof Mini Bar */}
-              <div className="pt-2 flex items-center gap-3">
+              <div className="pt-1 flex items-center gap-3">
                 <div className="flex -space-x-2">
                   <img className="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=128&h=128" alt="Senior" />
                   <img className="w-9 h-9 rounded-full border-2 border-white object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=128&h=128" alt="Senior" />
