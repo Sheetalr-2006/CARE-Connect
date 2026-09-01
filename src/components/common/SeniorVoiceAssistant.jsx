@@ -238,7 +238,7 @@ export const SeniorVoiceAssistant = () => {
         
         {/* Tooltip Bubble Popup Near Mic (Style 7 Spec) */}
         <div className="flex items-center gap-2 bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-2xl shadow-xl border border-white/15 animate-tooltip-fade-in">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
           <span>{t.voiceAssistant}</span>
           <span className="text-[10px] bg-primary/20 text-orange-300 font-normal px-2 py-0.5 rounded-full border border-primary/30">
             {activeLangObj.flag} 12 Languages
@@ -264,8 +264,8 @@ export const SeniorVoiceAssistant = () => {
             <Mic size={26} className="animate-pulse" />
             
             {/* Status dot */}
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-ping" />
-            <span className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white" />
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-white animate-ping" />
+            <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full border-2 border-white" />
           </button>
         </div>
       </div>
@@ -454,7 +454,7 @@ export const SeniorVoiceAssistant = () => {
                   style={{ animationDelay: '250ms' }}
                   className="p-2.5 rounded-xl bg-white hover:border-primary border border-[#E2E8F0] text-left text-xs font-bold flex items-center gap-2 transition-all shadow-xs animate-pop-zoom-glow"
                 >
-                  <Heart size={16} className="text-emerald-500 flex-shrink-0" />
+                  <Heart size={16} className="text-primary flex-shrink-0" />
                   <span className="truncate">{t.dashboard}</span>
                 </button>
 

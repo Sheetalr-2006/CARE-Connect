@@ -80,7 +80,7 @@ export const AllLinksPage = () => {
           path: '/',
           description: 'Official welcome portal, service preview, and fast login',
           badge: 'Public',
-          badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+          badgeColor: 'bg-orange-100 text-primary border-orange-200',
           icon: Home,
           role: 'All'
         },
@@ -195,7 +195,7 @@ export const AllLinksPage = () => {
           path: '/auth/interactions',
           description: 'Interactive community companion hub and social match feed',
           badge: 'Community',
-          badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
+          badgeColor: 'bg-orange-100 text-primary border-orange-200',
           icon: Sparkles,
           role: 'All'
         },
@@ -229,7 +229,7 @@ export const AllLinksPage = () => {
           path: '/medications',
           description: 'Prescription schedule, dosage alerts, pill intake logger & refills',
           badge: 'Health',
-          badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
+          badgeColor: 'bg-orange-100 text-primary border-orange-200',
           icon: Pill,
           role: 'Senior / Family'
         },
@@ -299,7 +299,7 @@ export const AllLinksPage = () => {
           path: '/volunteer-matching',
           description: 'Interest-based and proximity-based matching engine with compatibility scores',
           badge: 'AI Matching',
-          badgeColor: 'bg-teal-100 text-teal-800 border-teal-200',
+          badgeColor: 'bg-orange-100 text-primary border-orange-200',
           icon: Sparkles,
           role: 'Senior / Volunteer'
         },
@@ -358,7 +358,7 @@ export const AllLinksPage = () => {
           path: 'http://localhost:5000/api',
           description: 'Main API route serving database and real-time endpoints',
           badge: 'Express API (5000)',
-          badgeColor: 'bg-gray-900 text-emerald-400 border-gray-700',
+          badgeColor: 'bg-gray-900 text-orange-400 border-gray-700',
           icon: Server,
           role: 'Backend',
           isExternal: true
@@ -392,9 +392,9 @@ export const AllLinksPage = () => {
   const totalLinksCount = sections.reduce((acc, sec) => acc + sec.links.length, 0);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-teal-50/30 to-blue-50/30 text-slate-800 font-sans pb-24">
+    <div className="min-h-screen bg-gradient-to-br from-white via-orange-50/40 to-amber-50/30 text-slate-800 font-sans pb-24">
       {/* Header Banner */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-teal-100/80 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-orange-100/80 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-2 group" title="CareConnect Home">
@@ -417,13 +417,13 @@ export const AllLinksPage = () => {
           <div className="flex items-center gap-2">
             <Link
               to="/"
-              className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 transition-colors border border-teal-200"
+              className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-primary bg-orange-50 hover:bg-orange-100 transition-colors border border-orange-200"
             >
               ← Back to Portal
             </Link>
             <Link
               to="/dashboard"
-              className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-teal-600 hover:bg-teal-700 transition-colors shadow-sm"
+              className="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-white bg-primary hover:bg-primary-hover transition-colors shadow-sm"
             >
               Open Dashboard
             </Link>
@@ -434,11 +434,11 @@ export const AllLinksPage = () => {
       {/* Main Content Area */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-8">
         {/* Hero & Quick Demo Switcher */}
-        <div className="bg-white rounded-2xl border border-teal-100 p-6 shadow-sm">
+        <div className="bg-white rounded-2xl border border-orange-100 p-6 shadow-sm">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-teal-50 text-teal-700 border border-teal-200 mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-teal-600" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-orange-50 text-primary border border-orange-200 mb-2">
+                <Sparkles className="w-3.5 h-3.5 text-primary" />
                 Single Click Access to Every Screen
               </div>
               <h2 className="text-2xl font-bold text-slate-900">
@@ -593,7 +593,7 @@ export const AllLinksPage = () => {
                 className="p-3.5 rounded-2xl bg-white hover:bg-orange-50/50 border border-orange-200/80 shadow-xs text-left hover:border-primary transition-all group cursor-pointer"
               >
                 <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center shadow-2xs">
+                  <div className="w-7 h-7 rounded-lg bg-primary text-white flex items-center justify-center shadow-2xs">
                     <Tag size={15} />
                   </div>
                   <span className="text-xs font-bold text-slate-900 group-hover:text-primary">5. Special Offer (-15%)</span>
@@ -654,7 +654,7 @@ export const AllLinksPage = () => {
                 className="p-3.5 rounded-2xl bg-white hover:bg-orange-50/50 border border-orange-200/80 shadow-xs text-left hover:border-primary transition-all group cursor-pointer"
               >
                 <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-7 h-7 rounded-lg bg-teal-600 text-white flex items-center justify-center shadow-2xs">
+                  <div className="w-7 h-7 rounded-lg bg-primary text-white flex items-center justify-center shadow-2xs">
                     <Heart size={15} />
                   </div>
                   <span className="text-xs font-bold text-slate-900 group-hover:text-primary">8. Caregiver Alert Toast</span>
@@ -675,7 +675,7 @@ export const AllLinksPage = () => {
                 placeholder="Search by page name, path, keyword (e.g. 'medications', 'volunteer', 'signup')..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 text-sm placeholder:text-slate-400 bg-white"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary text-sm placeholder:text-slate-400 bg-white"
               />
               {searchTerm && (
                 <button
@@ -701,7 +701,7 @@ export const AllLinksPage = () => {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-3 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                     activeCategory === cat.id
-                      ? 'bg-teal-600 text-white shadow-xs'
+                      ? 'bg-primary text-white shadow-xs'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
                   }`}
                 >
@@ -714,9 +714,9 @@ export const AllLinksPage = () => {
 
         {/* Links Grid Sections */}
         {filteredSections.length === 0 ? (
-          <div className="bg-white rounded-2xl border border-slate-200 p-12 text-center">
-            <HelpCircle className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-            <h3 className="text-base font-bold text-slate-700">No matching pages found</h3>
+          <div className="text-center py-16 bg-white rounded-2xl border border-slate-200 p-8">
+            <Compass className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <h3 className="text-base font-bold text-slate-800">No matching routes found</h3>
             <p className="text-xs text-slate-500 mt-1">
               Try searching with different keywords like 'dashboard', 'login', 'appointments', or clear your search query.
             </p>
@@ -725,7 +725,7 @@ export const AllLinksPage = () => {
                 setSearchTerm('');
                 setActiveCategory('all');
               }}
-              className="mt-4 px-4 py-2 rounded-lg text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200"
+              className="mt-4 px-4 py-2 rounded-lg text-xs font-semibold bg-orange-50 text-primary border border-orange-200 hover:bg-orange-100 transition-colors"
             >
               Reset Filters
             </button>
@@ -758,18 +758,18 @@ export const AllLinksPage = () => {
                           href={link.path}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group bg-white rounded-xl border border-slate-200 p-4 hover:border-teal-400 hover:shadow-md transition-all flex flex-col justify-between"
+                          className="group bg-white rounded-xl border border-slate-200 p-4 hover:border-primary hover:shadow-md transition-all flex flex-col justify-between"
                         >
                           <div>
                             <div className="flex items-start justify-between gap-2 mb-2">
-                              <div className="w-9 h-9 rounded-lg bg-slate-900 text-teal-400 flex items-center justify-center">
+                              <div className="w-9 h-9 rounded-lg bg-slate-900 text-orange-400 flex items-center justify-center">
                                 <IconComponent className="w-5 h-5" />
                               </div>
                               <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border ${link.badgeColor}`}>
                                 {link.badge}
                               </span>
                             </div>
-                            <h4 className="font-bold text-sm text-slate-900 group-hover:text-teal-600 transition-colors flex items-center gap-1.5">
+                            <h4 className="font-bold text-sm text-slate-900 group-hover:text-primary transition-colors flex items-center gap-1.5">
                               {link.name}
                               <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
                             </h4>
@@ -782,7 +782,7 @@ export const AllLinksPage = () => {
                             <span className="font-mono text-[11px] text-slate-400 truncate max-w-[180px]">
                               {link.path}
                             </span>
-                            <span className="text-teal-600 font-semibold flex items-center gap-1">
+                            <span className="text-primary font-semibold flex items-center gap-1">
                               Open API <ArrowRight className="w-3 h-3" />
                             </span>
                           </div>
@@ -793,18 +793,18 @@ export const AllLinksPage = () => {
                     return (
                       <div
                         key={link.path}
-                        className="group bg-white rounded-xl border border-slate-200/90 hover:border-teal-400 hover:shadow-md transition-all flex flex-col justify-between p-4 relative"
+                        className="group bg-white rounded-xl border border-slate-200/90 hover:border-primary hover:shadow-md transition-all flex flex-col justify-between p-4 relative"
                       >
                         <Link to={link.path} className="flex-1">
                           <div className="flex items-start justify-between gap-2 mb-2">
-                            <div className="w-9 h-9 rounded-lg bg-teal-50 text-teal-700 group-hover:bg-teal-600 group-hover:text-white transition-colors flex items-center justify-center">
+                            <div className="w-9 h-9 rounded-lg bg-orange-50 text-primary group-hover:bg-primary group-hover:text-white transition-colors flex items-center justify-center">
                               <IconComponent className="w-5 h-5" />
                             </div>
                             <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold border ${link.badgeColor}`}>
                               {link.badge}
                             </span>
                           </div>
-                          <h4 className="font-bold text-sm text-slate-900 group-hover:text-teal-600 transition-colors">
+                          <h4 className="font-bold text-sm text-slate-900 group-hover:text-primary transition-colors">
                             {link.name}
                           </h4>
                           <p className="text-xs text-slate-500 mt-1 line-clamp-2">
@@ -821,7 +821,7 @@ export const AllLinksPage = () => {
                               className="p-1 rounded hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
                             >
                               {isCopied ? (
-                                <Check className="w-3.5 h-3.5 text-emerald-600" />
+                                <Check className="w-3.5 h-3.5 text-primary" />
                               ) : (
                                 <Copy className="w-3.5 h-3.5" />
                               )}
@@ -830,7 +830,7 @@ export const AllLinksPage = () => {
 
                           <Link
                             to={link.path}
-                            className="text-teal-600 font-semibold flex items-center gap-1 hover:translate-x-0.5 transition-transform"
+                            className="text-primary font-semibold flex items-center gap-1 hover:translate-x-0.5 transition-transform"
                           >
                             Visit Page <ArrowRight className="w-3 h-3" />
                           </Link>
@@ -845,23 +845,23 @@ export const AllLinksPage = () => {
         )}
 
         {/* Bottom Quick Help Card */}
-        <div className="bg-gradient-to-r from-teal-800 to-emerald-800 rounded-2xl p-6 text-white flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-2xl p-6 text-white flex flex-col md:flex-row items-center justify-between gap-4 shadow-ambient">
           <div>
             <h3 className="text-lg font-bold">Need help finding a specific flow?</h3>
-            <p className="text-xs text-teal-100 mt-1">
+            <p className="text-xs text-orange-100 mt-1">
               CareConnect is equipped with 20+ dedicated screens for Seniors, Volunteers, and Family members.
             </p>
           </div>
           <div className="flex items-center gap-3">
             <Link
               to="/"
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-teal-800 hover:bg-teal-50 transition-colors shadow-sm"
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-white text-primary hover:bg-orange-50 transition-colors shadow-sm"
             >
               Go to Home Page
             </Link>
             <Link
               to="/settings"
-              className="px-4 py-2 rounded-xl text-xs font-bold bg-teal-700/80 hover:bg-teal-700 text-white transition-colors border border-teal-600"
+              className="px-4 py-2 rounded-xl text-xs font-bold bg-orange-700/80 hover:bg-orange-700 text-white transition-colors border border-orange-500"
             >
               System Settings
             </Link>

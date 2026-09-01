@@ -79,7 +79,7 @@ export const FamilyDashboard = () => {
               <span className="text-[11px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-0.5 rounded-full">
                 Live Family Oversight
               </span>
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-on-surface mt-1">
               {currentElderly.name}
@@ -149,22 +149,22 @@ export const FamilyDashboard = () => {
             <div className="p-3.5 rounded-2xl bg-surface-container-low">
               <span className="text-[10px] uppercase font-bold text-on-surface-variant">Blood Pressure</span>
               <p className="text-lg font-black text-on-surface mt-0.5">{currentElderly.vitals.bloodPressure}</p>
-              <span className="text-[10px] text-emerald-600 font-semibold">✓ Normal target</span>
+              <span className="text-[10px] text-primary font-semibold">✓ Normal target</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-surface-container-low">
               <span className="text-[10px] uppercase font-bold text-on-surface-variant">Heart Rate</span>
               <p className="text-lg font-black text-on-surface mt-0.5">{currentElderly.vitals.heartRate}</p>
-              <span className="text-[10px] text-emerald-600 font-semibold">✓ Regular sinus</span>
+              <span className="text-[10px] text-primary font-semibold">✓ Regular sinus</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-surface-container-low">
               <span className="text-[10px] uppercase font-bold text-on-surface-variant">Blood Glucose</span>
               <p className="text-lg font-black text-on-surface mt-0.5">{currentElderly.vitals.bloodSugar}</p>
-              <span className="text-[10px] text-emerald-600 font-semibold">✓ Post-breakfast</span>
+              <span className="text-[10px] text-primary font-semibold">✓ Post-breakfast</span>
             </div>
             <div className="p-3.5 rounded-2xl bg-surface-container-low">
               <span className="text-[10px] uppercase font-bold text-on-surface-variant">Oxygen SpO2</span>
               <p className="text-lg font-black text-on-surface mt-0.5">{currentElderly.vitals.oxygenLevel}</p>
-              <span className="text-[10px] text-emerald-600 font-semibold">✓ Excellent</span>
+              <span className="text-[10px] text-primary font-semibold">✓ Excellent</span>
             </div>
           </div>
         </div>
@@ -173,7 +173,7 @@ export const FamilyDashboard = () => {
         <div className="bg-surface-container-lowest p-6 rounded-3xl border border-surface-container-high shadow-card space-y-4 animate-fade-in-scale" style={{ animationDelay: '300ms' }}>
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-on-surface flex items-center gap-2">
-              <Pill size={18} className="text-amber-600" />
+              <Pill size={18} className="text-primary" />
               Medication Adherence
             </h3>
             <span className="text-xs font-bold text-primary">{takenMeds} of {totalMeds} Taken</span>
@@ -200,7 +200,7 @@ export const FamilyDashboard = () => {
                   <span className="text-[11px] text-on-surface-variant block">{m.timing}</span>
                 </div>
                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                  m.status === 'Taken' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                  m.status === 'Taken' ? 'bg-orange-100 text-primary' : 'bg-amber-100 text-amber-800'
                 }`}>
                   {m.status}
                 </span>
@@ -213,10 +213,10 @@ export const FamilyDashboard = () => {
         <div className="bg-surface-container-lowest p-6 rounded-3xl border border-surface-container-high shadow-card space-y-4 animate-fade-in-scale" style={{ animationDelay: '450ms' }}>
           <div className="flex items-center justify-between">
             <h3 className="text-sm font-bold text-on-surface flex items-center gap-2">
-              <ShieldCheck size={18} className="text-emerald-600" />
+              <ShieldCheck size={18} className="text-primary" />
               Active Care Plan
             </h3>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">Active</span>
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-100 text-primary font-bold">Active</span>
           </div>
 
           <div className="p-4 rounded-2xl bg-primary/5 border border-primary/20 space-y-2">
@@ -229,7 +229,7 @@ export const FamilyDashboard = () => {
           </div>
 
           <div className="text-xs text-on-surface-variant flex items-center gap-2">
-            <CheckCircle2 size={15} className="text-emerald-600" />
+            <CheckCircle2 size={15} className="text-primary" />
             <span>Dedicated Coordinator: Dr. Olivia Reed</span>
           </div>
         </div>
@@ -273,8 +273,8 @@ export const FamilyDashboard = () => {
                 <MessageSquare size={18} className="text-primary" />
                 Care Team Instant Messaging
               </h3>
-              <span className="text-xs text-emerald-600 font-semibold flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-500"></span> Online
+              <span className="text-xs text-primary font-semibold flex items-center gap-1">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Online
               </span>
             </div>
 

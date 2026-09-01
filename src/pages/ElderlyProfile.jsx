@@ -107,7 +107,7 @@ export const ElderlyProfile = () => {
 
           <div className="bg-surface-container-lowest p-6 rounded-3xl border border-surface-container-high shadow-card space-y-3">
             <h3 className="text-sm font-bold text-on-surface flex items-center gap-2">
-              <Activity size={18} className="text-emerald-600" />
+              <Activity size={18} className="text-primary" />
               Primary Care Physician
             </h3>
             <div className="p-3.5 rounded-2xl bg-surface-container-low text-xs space-y-1">
@@ -203,7 +203,7 @@ export const ElderlyProfile = () => {
             <div className="space-y-2">
               {currentElderly.assistanceNeeds.map((need, i) => (
                 <div key={i} className="p-3 rounded-2xl bg-surface-container-low flex items-center gap-2 text-xs font-semibold text-on-surface">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span className="w-2 h-2 rounded-full bg-primary"></span>
                   <span>{need}</span>
                 </div>
               ))}

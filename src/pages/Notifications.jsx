@@ -32,7 +32,7 @@ export const Notifications = () => {
   const getIcon = (type) => {
     switch (type) {
       case 'health':
-        return <Heart size={18} className="text-emerald-600" />;
+        return <Heart size={18} className="text-primary" />;
       case 'medication':
         return <Pill size={18} className="text-amber-600" />;
       case 'visit':

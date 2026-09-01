@@ -55,7 +55,7 @@ export const Appointments = () => {
                 <span className="text-xs font-bold text-primary bg-primary/10 px-3 py-0.5 rounded-full">
                   {apt.type}
                 </span>
-                <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full">
+                <span className="text-xs font-semibold text-primary bg-orange-100 px-2.5 py-0.5 rounded-full">
                   {apt.status}
                 </span>
               </div>

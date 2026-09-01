@@ -246,7 +246,7 @@ export const ForgotPasswordModal = ({ isOpen, onClose, initialEmail = "eleanor.v
         {step === 3 && (
           <div className="space-y-5">
             <div className="text-center">
-              <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-3">
+              <div className="w-14 h-14 bg-orange-100 text-primary rounded-2xl flex items-center justify-center mx-auto mb-3">
                 <Lock size={28} />
               </div>
               <h2 className="text-2xl font-black text-on-surface">Set New Password</h2>
@@ -295,11 +295,11 @@ export const ForgotPasswordModal = ({ isOpen, onClose, initialEmail = "eleanor.v
               </div>
 
               {/* Password strength meter */}
-              <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-[11px] text-emerald-900 space-y-1">
+              <div className="p-3 rounded-xl bg-orange-50/70 border border-orange-200 text-[11px] text-orange-950 space-y-1">
                 <span className="font-bold flex items-center gap-1">
-                  <CheckCircle2 size={13} className="text-emerald-700" /> Password Security: Strong
+                  <CheckCircle2 size={13} className="text-primary" /> Password Security: Strong
                 </span>
-                <p className="text-emerald-800">Minimum 8 characters with letters, numbers, and symbols.</p>
+                <p className="text-orange-900">Minimum 8 characters with letters, numbers, and symbols.</p>
               </div>
 
               {errorMessage && (
@@ -320,7 +320,7 @@ export const ForgotPasswordModal = ({ isOpen, onClose, initialEmail = "eleanor.v
         {/* STEP 4: SUCCESS CONFIRMATION */}
         {step === 4 && (
           <div className="py-6 text-center space-y-4 animate-in zoom-in-95 duration-300">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 size={38} />
             </div>
             <div>

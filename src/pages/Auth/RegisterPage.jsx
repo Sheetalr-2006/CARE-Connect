@@ -129,7 +129,7 @@ export const RegisterPage = () => {
         <div className="bg-white py-8 px-6 sm:px-10 rounded-3xl shadow-xl border border-[#E2E8F0] space-y-4">
           
           {serverSuccess && (
-            <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+            <div className="p-3.5 rounded-2xl bg-orange-50 border border-orange-200 text-orange-950 text-xs font-semibold">
               {serverSuccess}
             </div>
           )}
@@ -373,7 +373,7 @@ export const RegisterPage = () => {
         </div>
 
         <div className="mt-4 flex items-center justify-center gap-2 text-xs text-[#64748B]">
-          <ShieldCheck size={16} className="text-emerald-600" />
+          <ShieldCheck size={16} className="text-primary" />
           <span>Your privacy & healthcare data is strictly protected</span>
         </div>
 

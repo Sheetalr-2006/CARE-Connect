@@ -105,7 +105,7 @@ export const InteractionsPage = () => {
       </div>
 
       <div className="mt-6 flex items-center justify-center gap-2 text-xs text-on-surface-variant">
-        <ShieldCheck size={16} className="text-emerald-600" />
+        <ShieldCheck size={16} className="text-primary" />
         <span>Preferences can be adjusted anytime from Settings</span>
       </div>
 

@@ -30,7 +30,7 @@ export const FloatingSocialEnquiry = () => {
         >
           <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse"></span>
           <span>Chat on WhatsApp</span>
-          <span className="text-[10px] text-emerald-300 font-normal bg-emerald-950/60 px-1.5 py-0.5 rounded-md border border-emerald-500/30">
+          <span className="text-[10px] text-orange-200 font-normal bg-orange-950/60 px-1.5 py-0.5 rounded-md border border-orange-500/30">
             Instant Reply
           </span>
           {/* Right pointing arrow */}
@@ -49,7 +49,7 @@ export const FloatingSocialEnquiry = () => {
           aria-label="Chat on WhatsApp with CareConnect customer support"
           onMouseEnter={() => setHoveredIcon('whatsapp')}
           onMouseLeave={() => setHoveredIcon(null)}
-          className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg hover:shadow-2xl shadow-emerald-600/30 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 ring-3 ring-white/90 focus:outline-none focus:ring-4 focus:ring-emerald-400 cursor-pointer group"
+          className="relative w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-lg hover:shadow-2xl shadow-orange-600/30 flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 ring-3 ring-white/90 focus:outline-none focus:ring-4 focus:ring-primary cursor-pointer group"
           title="Chat on WhatsApp"
         >
           {/* WhatsApp Official SVG Vector */}

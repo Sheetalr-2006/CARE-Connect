@@ -44,7 +44,7 @@ export const VolunteerMatching = () => {
             <span className="text-[11px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-0.5 rounded-full">
               AI-Powered Compatibility Engine
             </span>
-            <span className="text-xs text-emerald-600 font-semibold flex items-center gap-1">
+            <span className="text-xs text-primary font-semibold flex items-center gap-1">
               <Sparkles size={13} /> 98% Top Match
             </span>
           </div>
@@ -117,7 +117,7 @@ export const VolunteerMatching = () => {
                       <h3 className="text-base font-bold text-on-surface">{vol.name}</h3>
                       {vol.backgroundVerified && (
                         <span title="Background Check Verified">
-                          <ShieldCheck size={16} className="text-emerald-600" />
+                          <ShieldCheck size={16} className="text-primary" />
                         </span>
                       )}
                     </div>
@@ -152,17 +152,17 @@ export const VolunteerMatching = () => {
               </div>
 
               {/* Service Rate & Pricing Options */}
-              <div className="mb-3 p-3 rounded-2xl bg-emerald-50/60 border border-emerald-200/60">
+              <div className="mb-3 p-3 rounded-2xl bg-orange-50/70 border border-orange-200/70">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-900">Volunteer Service Rate:</span>
-                  <span className="text-xs font-black text-emerald-800">{vol.hourlyRate || "$0 (Free Community)"}</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-orange-950">Volunteer Service Rate:</span>
+                  <span className="text-xs font-black text-orange-900">{vol.hourlyRate || "$0 (Free Community)"}</span>
                 </div>
                 {vol.serviceRates && (
-                  <div className="space-y-1 pt-1 border-t border-emerald-200/40">
+                  <div className="space-y-1 pt-1 border-t border-orange-200/40">
                     {vol.serviceRates.slice(0, 2).map((sr, i) => (
-                      <div key={i} className="flex items-center justify-between text-[11px] text-emerald-950">
+                      <div key={i} className="flex items-center justify-between text-[11px] text-orange-950">
                         <span>• {sr.service}</span>
-                        <span className="font-semibold text-emerald-700">{sr.rate}</span>
+                        <span className="font-semibold text-primary">{sr.rate}</span>
                       </div>
                     ))}
                   </div>

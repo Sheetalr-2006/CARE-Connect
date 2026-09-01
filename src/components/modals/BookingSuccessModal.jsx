@@ -179,7 +179,7 @@ export const BookingSuccessModal = () => {
 
         {/* Security badge footer */}
         <p className="mt-4 text-[10px] text-slate-400 flex items-center justify-center gap-1">
-          <ShieldCheck size={13} className="text-emerald-600" />
+          <ShieldCheck size={13} className="text-primary" />
           HIPAA & State Registry Verified Companion Dispatch
         </p>
 

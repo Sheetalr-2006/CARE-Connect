@@ -284,7 +284,7 @@ export const VideoCallModal = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 pointer-events-none" />
 
               <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-full text-[11px] font-bold flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span className="w-2 h-2 rounded-full bg-primary"></span>
                 <span>{currentElderly.name} (You)</span>
               </div>
 

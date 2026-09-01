@@ -215,19 +215,19 @@ export const SplashScreen = ({
         }
         handleDismiss();
       }}
-      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-between py-6 px-4 bg-[#FAF8F5] select-none cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
+      className={`fixed inset-0 z-[99999] flex flex-col items-center justify-between py-6 px-4 bg-white select-none cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
         isFadingOut
           ? 'opacity-0 scale-106 blur-xs pointer-events-none'
           : 'opacity-100 scale-100 blur-0'
       }`}
       style={{
-        background: 'radial-gradient(ellipse at center, #FFFFFF 0%, #FAF8F5 70%, #F5F1E8 100%)'
+        background: 'radial-gradient(ellipse at center, #FFFFFF 0%, #FFF7ED 70%, #FFEDD5 100%)'
       }}
       aria-label="CareConnect Calming Intro Animation"
     >
       {/* Top Action Bar */}
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between z-20">
-        <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-[#E2ECE9] text-[11px] font-bold text-[#132E27] shadow-xs">
+        <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-orange-200/80 text-[11px] font-bold text-slate-800 shadow-xs">
           <Feather size={13} className="text-primary animate-pulse" />
           <span>Calming Senior Sound Experience</span>
         </div>
@@ -240,11 +240,11 @@ export const SplashScreen = ({
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border ${
               isMuted 
                 ? 'bg-slate-100/90 text-slate-500 border-slate-300' 
-                : 'bg-emerald-50 text-[#0F4C3A] border-emerald-200 hover:bg-emerald-100'
+                : 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100'
             }`}
             title={isMuted ? "Unmute Intro Sound" : "Mute Intro Sound"}
           >
-            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="animate-pulse text-[#0F4C3A]" />}
+            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className="animate-pulse text-primary" />}
             <span>{isMuted ? 'Muted' : 'Sound On'}</span>
           </button>
 
@@ -255,7 +255,7 @@ export const SplashScreen = ({
               e.stopPropagation();
               handleDismiss();
             }}
-            className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-white/80 hover:bg-white text-[#132E27] text-xs font-semibold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border border-[#E2ECE9]"
+            className="flex items-center gap-1 px-4 py-1.5 rounded-full bg-white/90 hover:bg-white text-slate-800 text-xs font-semibold backdrop-blur-md transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer border border-orange-200/80"
           >
             <span>Skip</span>
             <ArrowRight size={13} />
@@ -264,7 +264,7 @@ export const SplashScreen = ({
       </div>
 
       {/* Cinematic Soft Glow */}
-      <div className="absolute w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-emerald-400/20 via-amber-300/15 to-orange-400/15 rounded-full blur-3xl pointer-events-none animate-netflix-aura"></div>
+      <div className="absolute w-[500px] sm:w-[700px] h-[500px] sm:h-[700px] bg-gradient-to-r from-orange-400/20 via-amber-300/20 to-orange-500/15 rounded-full blur-3xl pointer-events-none animate-netflix-aura"></div>
 
       {/* Center Animated Logo Lockup */}
       <div className="relative z-10 w-[92vw] sm:w-[85vw] max-w-[860px] mx-auto px-4 sm:px-8 flex flex-col items-center justify-center text-center my-auto">
@@ -279,12 +279,12 @@ export const SplashScreen = ({
         </div>
 
         {/* Ambient Subtle Shimmer */}
-        <div className="mt-4 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-emerald-600/40 to-transparent rounded-full animate-netflix-categories"></div>
+        <div className="mt-4 w-32 sm:w-48 h-0.5 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent rounded-full animate-netflix-categories"></div>
 
         {/* Autoplay unlock prompt (if browser blocked sound) */}
         {needsGesture && !isMuted && (
-          <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-200 text-xs font-bold animate-bounce shadow-xs">
-            <Volume2 size={14} className="text-emerald-700" />
+          <div className="mt-3 inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-orange-50 text-orange-900 border border-orange-200 text-xs font-bold animate-bounce shadow-xs">
+            <Volume2 size={14} className="text-primary" />
             <span>Click anywhere to play gentle melody</span>
           </div>
         )}
@@ -294,9 +294,9 @@ export const SplashScreen = ({
       {/* Bottom Pleasant Sound Selector Bar */}
       <div 
         onClick={(e) => e.stopPropagation()}
-        className="relative z-20 w-full max-w-2xl mx-auto p-2 sm:p-2.5 rounded-2xl bg-white/90 backdrop-blur-lg border border-[#E2ECE9] shadow-md flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
+        className="relative z-20 w-full max-w-2xl mx-auto p-2 sm:p-2.5 rounded-2xl bg-white/95 backdrop-blur-lg border border-orange-200/80 shadow-md flex flex-col sm:flex-row items-center justify-between gap-2 text-xs"
       >
-        <div className="flex items-center gap-1.5 px-2 text-[#132E27] font-bold text-[11px] whitespace-nowrap">
+        <div className="flex items-center gap-1.5 px-2 text-slate-800 font-bold text-[11px] whitespace-nowrap">
           <Feather size={13} className="text-primary" />
           <span>Gentle Melody:</span>
         </div>
@@ -313,7 +313,7 @@ export const SplashScreen = ({
                 className={`px-3 py-1.5 rounded-xl font-bold text-[11px] transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                   isSelected
                     ? 'bg-primary text-white shadow-xs scale-105'
-                    : 'bg-[#F4F1EA] text-[#132E27] hover:bg-[#EAE4D8]'
+                    : 'bg-orange-50/70 text-slate-800 hover:bg-orange-100/80'
                 }`}
                 title={profile.desc}
               >

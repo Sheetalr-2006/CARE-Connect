@@ -85,8 +85,8 @@ export const VolunteerDashboard = () => {
               <span className="text-[11px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-0.5 rounded-full flex items-center gap-1">
                 <HeartHandshake size={13} /> Volunteer Companion Portal
               </span>
-              <span className="text-xs text-emerald-700 font-semibold flex items-center gap-1">
-                <ShieldCheck size={14} className="text-emerald-600" /> Background Verified
+              <span className="text-xs text-primary font-semibold flex items-center gap-1">
+                <ShieldCheck size={14} className="text-primary" /> Background Verified
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-on-surface mt-1">
@@ -149,7 +149,7 @@ export const VolunteerDashboard = () => {
         </div>
 
         <div className="bg-surface-container-lowest p-5 rounded-3xl border border-surface-container-high shadow-card flex items-center gap-4 animate-fade-in-scale" style={{ animationDelay: '300ms' }}>
-          <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0">
+          <div className="w-12 h-12 rounded-2xl bg-orange-100 text-primary flex items-center justify-center flex-shrink-0">
             <DollarSign size={24} />
           </div>
           <div>
@@ -208,7 +208,7 @@ export const VolunteerDashboard = () => {
                       <p className="text-xs text-on-surface-variant flex items-center gap-1">
                         <MapPin size={12} className="text-primary" /> {senior.address}
                       </p>
-                      <p className="text-xs text-emerald-700 font-semibold flex items-center gap-1">
+                      <p className="text-xs text-primary font-semibold flex items-center gap-1">
                         <Clock size={12} /> Next: {senior.nextVisit}
                       </p>
                     </div>
@@ -244,7 +244,7 @@ export const VolunteerDashboard = () => {
           {/* Quick Log Completed Visit Report */}
           <div className="bg-surface-container-lowest p-6 rounded-3xl border border-surface-container-high shadow-card space-y-4">
             <h2 className="text-base font-bold text-on-surface flex items-center gap-2">
-              <CheckCircle2 size={18} className="text-emerald-600" />
+              <CheckCircle2 size={18} className="text-primary" />
               Quick Log Companion Visit Notes
             </h2>
             <p className="text-xs text-on-surface-variant">
@@ -289,8 +289,8 @@ export const VolunteerDashboard = () => {
               </div>
 
               {loggedStatus && (
-                <div className="p-3 rounded-xl bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center gap-2">
-                  <CheckCircle2 size={16} /> Visit report saved! Family caregiver notified.
+                <div className="p-3 rounded-xl bg-orange-100 text-orange-950 text-xs font-bold flex items-center gap-2">
+                  <CheckCircle2 size={16} className="text-primary" /> Visit report saved! Family caregiver notified.
                 </div>
               )}
 
@@ -324,9 +324,9 @@ export const VolunteerDashboard = () => {
                 <div key={i} className="p-3 rounded-2xl bg-surface-container-low border border-surface-container text-xs space-y-0.5">
                   <div className="flex items-center justify-between font-bold text-on-surface">
                     <span>{cert.name}</span>
-                    <ShieldCheck size={14} className="text-emerald-600" />
+                    <ShieldCheck size={14} className="text-primary" />
                   </div>
-                  <p className="text-[11px] text-on-surface-variant">{cert.org} • <span className="text-emerald-700 font-semibold">{cert.valid}</span></p>
+                  <p className="text-[11px] text-on-surface-variant">{cert.org} • <span className="text-primary font-semibold">{cert.valid}</span></p>
                 </div>
               ))}
             </div>

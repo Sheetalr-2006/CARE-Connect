@@ -36,7 +36,7 @@ export const PendingApprovalPage = () => {
         {/* Status Steps */}
         <div className="bg-surface-container-low p-4 rounded-2xl border border-surface-container text-left space-y-3 mb-6">
           <div className="flex items-center gap-3">
-            <CheckCircle2 size={18} className="text-emerald-600 flex-shrink-0" />
+            <CheckCircle2 size={18} className="text-primary flex-shrink-0" />
             <div className="text-xs">
               <span className="font-bold text-on-surface">Application & Degrees Submitted</span>
               <p className="text-[11px] text-on-surface-variant">Credentials recorded successfully</p>
@@ -79,7 +79,7 @@ export const PendingApprovalPage = () => {
       </div>
 
       <div className="mt-8 flex items-center justify-center gap-2 text-xs text-on-surface-variant text-center">
-        <ShieldCheck size={16} className="text-emerald-600" />
+        <ShieldCheck size={16} className="text-primary" />
         <span>100% Verified Community Volunteer Safeguards</span>
       </div>
 

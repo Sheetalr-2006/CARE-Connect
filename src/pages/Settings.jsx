@@ -65,8 +65,8 @@ export const Settings = () => {
       </div>
 
       {savedSuccess && (
-        <div className="p-4 rounded-2xl bg-emerald-100 border border-emerald-300 text-emerald-900 text-xs font-bold flex items-center gap-2 animate-in fade-in">
-          <CheckCircle2 size={16} className="text-emerald-700" />
+        <div className="p-4 rounded-2xl bg-orange-100 border border-orange-300 text-orange-950 text-xs font-bold flex items-center gap-2 animate-in fade-in">
+          <CheckCircle2 size={16} className="text-primary" />
           <span>Your accessibility and system preferences have been saved successfully!</span>
         </div>
       )}

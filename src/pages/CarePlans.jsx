@@ -80,7 +80,7 @@ export const CarePlans = () => {
               }`}
             >
               <span>Annual Billing</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">
+              <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-100 text-primary font-bold">
                 Save 20%
               </span>
             </button>
@@ -156,7 +156,7 @@ export const CarePlans = () => {
                       {getPeriodLabel()}
                     </span>
                   </div>
-                  <span className="text-[11px] text-emerald-700 font-medium block mt-1">
+                  <span className="text-[11px] text-primary font-medium block mt-1">
                     {billingInterval === 'annual' ? 'Billed annually • Cancel anytime' : 'Monthly recurring membership'}
                   </span>
                 </div>
@@ -168,7 +168,7 @@ export const CarePlans = () => {
                   </span>
                   {plan.features.map((feat, i) => (
                     <div key={i} className="flex items-start gap-2.5 text-xs text-on-surface leading-relaxed">
-                      <div className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-4 h-4 rounded-full bg-orange-100 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check size={12} className="stroke-[3]" />
                       </div>
                       <span>{feat}</span>
@@ -183,9 +183,9 @@ export const CarePlans = () => {
                   onClick={() => handleSelectPlan(plan)}
                   className={`w-full py-3.5 px-4 rounded-2xl text-xs font-bold transition-all shadow-ambient flex items-center justify-center gap-2 ${
                     isSelected
-                      ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                      ? 'bg-primary text-white hover:bg-primary-hover shadow-ambient'
                       : plan.recommended
-                      ? 'bg-primary text-white hover:bg-primary/90'
+                      ? 'bg-primary text-white hover:bg-primary-hover'
                       : 'bg-surface-container text-on-surface hover:bg-surface-container-high'
                   }`}
                 >
@@ -227,7 +227,7 @@ export const CarePlans = () => {
       {checkoutModalPlan && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-xs">
           <div className="bg-surface-container-lowest rounded-3xl max-w-md w-full p-6 text-center space-y-4 shadow-2xl border border-surface-container-high animate-in zoom-in-95">
-            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 rounded-full bg-orange-100 text-primary flex items-center justify-center mx-auto">
               <CheckCircle2 size={36} />
             </div>
             <h3 className="text-xl font-bold text-on-surface">Care Plan Updated</h3>

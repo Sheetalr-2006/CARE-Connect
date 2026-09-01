@@ -233,7 +233,7 @@ export const ForgotPasswordPage = () => {
           {step === 3 && (
             <div className="space-y-5">
               <div className="text-center">
-                <div className="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-2">
+                <div className="w-14 h-14 bg-orange-100 text-primary rounded-2xl flex items-center justify-center mx-auto mb-2">
                   <Lock size={28} />
                 </div>
                 <h2 className="text-xl font-bold text-on-surface">Set New Password</h2>
@@ -295,7 +295,7 @@ export const ForgotPasswordPage = () => {
 
           {step === 4 && (
             <div className="py-6 text-center space-y-4 animate-in zoom-in-95 duration-300">
-              <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle2 size={38} />
               </div>
               <h3 className="text-2xl font-black text-on-surface">Password Updated!</h3>

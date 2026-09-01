@@ -370,8 +370,8 @@ export const LoginPage = () => {
 
           {/* Success Banner */}
           {successBanner && (
-            <div className="p-3.5 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-center gap-2 animate-in fade-in">
-              <CheckCircle2 size={18} className="text-emerald-600 flex-shrink-0" />
+            <div className="p-3.5 rounded-2xl bg-orange-50 border border-orange-200 text-orange-950 text-xs font-semibold flex items-center gap-2 animate-in fade-in">
+              <CheckCircle2 size={18} className="text-primary flex-shrink-0" />
               <span>{successBanner}</span>
             </div>
           )}
@@ -1076,7 +1076,7 @@ export const LoginPage = () => {
               {forgotStep === 3 && (
                 <div className="space-y-4">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center mx-auto mb-2">
+                    <div className="w-12 h-12 bg-orange-100 text-primary rounded-2xl flex items-center justify-center mx-auto mb-2">
                       <Lock size={24} />
                     </div>
                     <h3 className="text-lg font-bold text-[#0F172A]">Set New Password</h3>
@@ -1152,9 +1152,9 @@ export const LoginPage = () => {
                     </div>
 
                     {/* Security tips */}
-                    <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-[#475569] space-y-1">
+                    <div className="p-3 rounded-xl bg-orange-50/70 border border-orange-200 text-[11px] text-[#475569] space-y-1">
                       <div className="font-semibold text-[#0F172A] flex items-center gap-1">
-                        <Check size={13} className="text-emerald-600" /> Password Security Guidelines:
+                        <Check size={13} className="text-primary" /> Password Security Guidelines:
                       </div>
                       <p>At least 6 characters including letters, numbers, or symbols.</p>
                     </div>
@@ -1183,7 +1183,7 @@ export const LoginPage = () => {
               {/* STEP 4: Success */}
               {forgotStep === 4 && (
                 <div className="py-6 text-center space-y-4 animate-in zoom-in-95 duration-200">
-                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                  <div className="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center mx-auto">
                     <CheckCircle2 size={36} />
                   </div>
                   <div>
@@ -1211,7 +1211,7 @@ export const LoginPage = () => {
 
         {/* Security & Compliance Footer */}
         <div className="mt-6 flex items-center justify-center gap-2 text-xs text-[#64748B]">
-          <ShieldCheck size={16} className="text-emerald-600" />
+          <ShieldCheck size={16} className="text-primary" />
           <span>HIPAA-Compliant 256-Bit Encrypted Healthcare Platform</span>
         </div>
 

@@ -132,7 +132,7 @@ export const Navbar = ({ onToggleMobileMenu, isMobileMenuOpen }) => {
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs text-slate-700 hover:bg-slate-100 border border-slate-200 transition-colors"
               title="Switch Demo Persona"
             >
-              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span className="w-2 h-2 rounded-full bg-primary"></span>
               <span className="font-medium hidden sm:inline">{currentUser?.roleLabel || "Role"}</span>
               <span className="font-medium sm:hidden capitalize">{currentUser?.role}</span>
               <ChevronDown size={12} className="text-slate-400" />

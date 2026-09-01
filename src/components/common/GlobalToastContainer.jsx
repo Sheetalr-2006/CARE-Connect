@@ -30,7 +30,7 @@ export const GlobalToastContainer = () => {
       case 'warning':
         return { icon: AlertTriangle, color: 'text-amber-600 bg-amber-50 border-amber-200' };
       case 'success':
-        return { icon: CheckCircle2, color: 'text-emerald-600 bg-emerald-50 border-emerald-200' };
+        return { icon: CheckCircle2, color: 'text-primary bg-orange-50 border-orange-200' };
       case 'sos':
         return { icon: AlertTriangle, color: 'text-white bg-error border-error animate-pulse' };
       default:

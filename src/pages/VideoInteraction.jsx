@@ -128,7 +128,7 @@ export const VideoInteraction = () => {
             <span className="text-[11px] font-bold uppercase tracking-widest text-primary bg-primary/10 px-3 py-0.5 rounded-full flex items-center gap-1">
               <Video size={13} /> Live Telecare & Video Interaction
             </span>
-            <span className="text-xs text-emerald-600 font-semibold flex items-center gap-1">
+            <span className="text-xs text-primary font-semibold flex items-center gap-1">
               <ShieldCheck size={14} /> 256-Bit Encrypted
             </span>
           </div>
@@ -183,8 +183,8 @@ export const VideoInteraction = () => {
                   <span className="text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-0.5 rounded-full">
                     {room.badge}
                   </span>
-                  <span className="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+                  <span className="text-[11px] text-primary font-semibold flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>
                     {room.status}
                   </span>
                 </div>
@@ -271,7 +271,7 @@ export const VideoInteraction = () => {
                 <p className="text-xs text-on-surface-variant">
                   Participant: <strong className="text-on-surface">{log.with}</strong>
                 </p>
-                <p className="text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1 rounded-xl inline-block mt-1">
+                <p className="text-[11px] text-primary font-semibold bg-orange-50 px-2.5 py-1 rounded-xl inline-block mt-1">
                   Telemetry Summary: {log.vitalsLogged}
                 </p>
               </div>

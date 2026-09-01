@@ -322,10 +322,10 @@ export const AuthDrawerModal = () => {
           {activeTab === 'register' && (
             <div className="mt-4">
               {regSuccess ? (
-                <div className="p-6 text-center space-y-3 bg-emerald-50 rounded-2xl border border-emerald-200 my-4">
-                  <CheckCircle2 size={40} className="mx-auto text-emerald-600 animate-bounce" />
-                  <h4 className="text-base font-bold text-emerald-900">Account Created Successfully!</h4>
-                  <p className="text-xs text-emerald-700">Setting up your personalized care portal...</p>
+                <div className="p-6 text-center space-y-3 bg-orange-50 rounded-2xl border border-orange-200 my-4">
+                  <CheckCircle2 size={40} className="mx-auto text-primary animate-bounce" />
+                  <h4 className="text-base font-bold text-orange-950">Account Created Successfully!</h4>
+                  <p className="text-xs text-primary">Setting up your personalized care portal...</p>
                 </div>
               ) : (
                 <form onSubmit={handleRegister} className="space-y-3">
@@ -476,7 +476,7 @@ export const AuthDrawerModal = () => {
           </div>
 
           <p className="text-[10px] text-slate-400 flex items-center justify-center gap-1">
-            <ShieldCheck size={13} className="text-emerald-600" />
+            <ShieldCheck size={13} className="text-primary" />
             256-Bit Encrypted HIPAA Compliant Session
           </p>
         </div>

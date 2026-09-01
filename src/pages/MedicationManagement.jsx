@@ -105,9 +105,9 @@ export const MedicationManagement = () => {
           <div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant">Today's Adherence</span>
             <p className="text-2xl font-black text-on-surface mt-1">{takenCount} / {medications.length} Pills</p>
-            <span className="text-xs font-semibold text-emerald-600">✓ On track for 100%</span>
+            <span className="text-xs font-semibold text-primary">✓ On track for 100%</span>
           </div>
-          <div className="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 font-black text-lg flex items-center justify-center border border-emerald-200">
+          <div className="w-14 h-14 rounded-2xl bg-orange-50 text-primary font-black text-lg flex items-center justify-center border border-orange-200">
             {adherencePercent}%
           </div>
         </div>
@@ -186,7 +186,7 @@ const renderMedCard = (med, handleToggle, handleRefill, handleDiscontinue) => {
       key={med.id}
       className={`p-5 rounded-3xl border-2 transition-all flex flex-col justify-between ${
         isTaken
-          ? 'bg-emerald-50/40 border-emerald-300'
+          ? 'bg-orange-50/60 border-orange-300'
           : 'bg-surface-container-lowest border-surface-container-high shadow-card hover:shadow-ambient'
       }`}
     >
@@ -195,7 +195,7 @@ const renderMedCard = (med, handleToggle, handleRefill, handleDiscontinue) => {
           <div className="flex items-center gap-3">
             <div
               className={`w-11 h-11 rounded-2xl flex items-center justify-center flex-shrink-0 ${
-                isTaken ? 'bg-emerald-600 text-white' : 'bg-primary/10 text-primary'
+                isTaken ? 'bg-primary text-white' : 'bg-primary/10 text-primary'
               }`}
             >
               <Pill size={22} />
@@ -211,7 +211,7 @@ const renderMedCard = (med, handleToggle, handleRefill, handleDiscontinue) => {
               onClick={() => handleToggle(med)}
               className={`px-4 py-2 rounded-xl text-xs font-bold shadow-sm transition-transform active:scale-95 cursor-pointer ${
                 isTaken
-                  ? 'bg-emerald-600 text-white'
+                  ? 'bg-primary text-white'
                   : 'bg-primary text-white hover:bg-primary/90'
               }`}
             >
@@ -245,7 +245,7 @@ const renderMedCard = (med, handleToggle, handleRefill, handleDiscontinue) => {
               {med.refillRequested ? '✓ Refill Ordered' : '⚠️ Order Refill'}
             </button>
           ) : (
-            <span className="text-emerald-700 font-semibold text-[11px] hidden sm:inline">✓ Adequate</span>
+            <span className="text-primary font-semibold text-[11px] hidden sm:inline">✓ Adequate</span>
           )}
 
           <button

@@ -17,8 +17,8 @@ export const WellbeingCheckIn = () => {
   const { currentElderly, addWellbeingLog, wellbeingLogs } = useApp();
 
   const moods = [
-    { label: "Joyful & Energetic", emoji: "😄", score: 5, color: "border-emerald-500 bg-emerald-50/40" },
-    { label: "Calm & Happy", emoji: "😊", score: 4, color: "border-primary bg-primary/5" },
+    { label: "Joyful & Energetic", emoji: "😄", score: 5, color: "border-orange-500 bg-orange-50/50" },
+    { label: "Calm & Happy", emoji: "😊", score: 4, color: "border-primary bg-primary/10" },
     { label: "Neutral / Relaxed", emoji: "😐", score: 3, color: "border-surface-container bg-surface-container-low" },
     { label: "A Bit Tired", emoji: "🥱", score: 2, color: "border-amber-500 bg-amber-50/40" },
     { label: "Uncomfortable / Down", emoji: "😔", score: 1, color: "border-rose-500 bg-rose-50/40" }
@@ -70,8 +70,8 @@ export const WellbeingCheckIn = () => {
       </div>
 
       {submitted ? (
-        <div className="bg-surface-container-lowest p-8 sm:p-12 rounded-3xl border-2 border-emerald-500 shadow-ambient text-center space-y-4 animate-in zoom-in-95 duration-200">
-          <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto">
+        <div className="bg-surface-container-lowest p-8 sm:p-12 rounded-3xl border-2 border-primary shadow-ambient text-center space-y-4 animate-in zoom-in-95 duration-200">
+          <div className="w-20 h-20 rounded-full bg-orange-100 text-primary flex items-center justify-center mx-auto">
             <CheckCircle2 size={44} />
           </div>
           <h2 className="text-2xl font-black text-on-surface">Thank You! Check-in Recorded</h2>
@@ -239,7 +239,7 @@ export const WellbeingCheckIn = () => {
                   Sleep: {log.sleepQuality} • Pain Level: {log.painLevel}/5 • {log.notes}
                 </p>
               </div>
-              <span className="text-emerald-700 font-bold flex items-center gap-1 self-end sm:self-center">
+              <span className="text-primary font-bold flex items-center gap-1 self-end sm:self-center">
                 <CheckCircle2 size={14} /> Logged
               </span>
             </div>

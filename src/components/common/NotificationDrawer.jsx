@@ -16,7 +16,7 @@ export const NotificationDrawer = () => {
   const getIcon = (type) => {
     switch (type) {
       case 'health':
-        return <Heart size={16} className="text-emerald-600" />;
+        return <Heart size={16} className="text-primary" />;
       case 'medication':
         return <Pill size={16} className="text-amber-600" />;
       case 'visit':

@@ -265,7 +265,7 @@ export const TestimonialBottomSheet = () => {
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center gap-1">
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-orange-50 text-primary border border-orange-200 flex items-center gap-1">
                     <CheckCircle2 size={12} />
                     {currentReview.badge}
                   </span>

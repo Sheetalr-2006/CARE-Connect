@@ -92,7 +92,7 @@ export const RateVolunteerModal = () => {
 
         {isSubmitted ? (
           <div className="py-10 text-center space-y-3 animate-in zoom-in-95 duration-300">
-            <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-orange-100 text-primary rounded-full flex items-center justify-center mx-auto">
               <CheckCircle2 size={36} />
             </div>
             <h3 className="text-xl font-bold text-on-surface">Thank you for rating!</h3>
@@ -119,7 +119,7 @@ export const RateVolunteerModal = () => {
                 <div className="flex items-center gap-2 text-xs text-on-surface-variant mt-0.5">
                   <span>⭐ {selectedVolunteerForRating.rating || 5.0} ({selectedVolunteerForRating.reviewsCount || 42} reviews)</span>
                   <span>•</span>
-                  <span className="font-semibold text-emerald-700">{selectedVolunteerForRating.hourlyRate || "Community Volunteer"}</span>
+                  <span className="font-semibold text-primary">{selectedVolunteerForRating.hourlyRate || "Community Volunteer"}</span>
                 </div>
               </div>
             </div>

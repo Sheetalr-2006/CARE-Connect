@@ -379,12 +379,12 @@ export const SocialClubEventsSection = () => {
 
               {/* Special Companion-Assisted Transport Highlight for Movie Outing & Temple Visit */}
               {selectedActivity.includesTransport && (
-                <div className="p-4 rounded-2xl bg-emerald-50/90 border-2 border-emerald-300 text-emerald-900 text-xs space-y-1">
-                  <div className="flex items-center gap-2 font-bold text-emerald-800">
-                    <Car size={18} className="text-emerald-700" />
+                <div className="p-4 rounded-2xl bg-orange-50/90 border-2 border-orange-300 text-orange-950 text-xs space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-primary">
+                    <Car size={18} className="text-primary" />
                     <span className="uppercase tracking-wider text-[11px]">Companion-assisted transport included</span>
                   </div>
-                  <p className="text-[11px] text-emerald-700 leading-relaxed">
+                  <p className="text-[11px] text-orange-900 leading-relaxed">
                     A verified CareConnect volunteer aide provides roundtrip door-to-door escort ride in an accessible vehicle, assisting with entry, seating, and comfortable return home.
                   </p>
                 </div>
@@ -419,7 +419,7 @@ export const SocialClubEventsSection = () => {
 
               {/* Care & Safety Assurance */}
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] text-slate-500 flex items-center gap-2">
-                <ShieldCheck size={16} className="text-emerald-600 flex-shrink-0" />
+                <ShieldCheck size={16} className="text-primary flex-shrink-0" />
                 <span>All activities supervised by background-checked volunteers and senior wellness coordinators.</span>
               </div>
 

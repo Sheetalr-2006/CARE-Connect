@@ -49,7 +49,7 @@ export const VolunteerManagement = () => {
       <div className="bg-surface-container-lowest rounded-3xl border border-surface-container-high shadow-card overflow-hidden">
         <div className="p-5 border-b border-surface-container flex items-center justify-between">
           <h3 className="text-sm font-bold text-on-surface">Verified Community Volunteers ({volunteers.length})</h3>
-          <span className="text-xs text-emerald-700 font-semibold flex items-center gap-1">
+          <span className="text-xs text-primary font-semibold flex items-center gap-1">
             <ShieldCheck size={15} /> 100% Background Screened
           </span>
         </div>
@@ -68,7 +68,7 @@ export const VolunteerManagement = () => {
                 <div>
                   <div className="flex items-center gap-2">
                     <h4 className="text-base font-bold text-on-surface">{vol.name}</h4>
-                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 flex items-center gap-1">
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-primary flex items-center gap-1">
                       <ShieldCheck size={12} /> Verified {vol.verificationDate}
                     </span>
                   </div>
@@ -99,7 +99,7 @@ export const VolunteerManagement = () => {
                 </div>
                 <div>
                   <span className="text-[10px] uppercase font-bold text-on-surface-variant block">Status</span>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md mt-0.5 inline-block">
+                  <span className="text-[11px] font-bold text-primary bg-orange-50 px-2 py-0.5 rounded-md mt-0.5 inline-block">
                     {vol.status}
                   </span>
                 </div>

@@ -126,7 +126,7 @@ export const AuthLandingPage = () => {
       title: '🏠 Dashboards & Main Portals',
       description: 'Dedicated interfaces for seniors, family guardians, and volunteers',
       links: [
-        { name: 'Home & Welcome Portal', path: '/', description: 'Official welcome portal & service overview', badge: 'Public', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', icon: Home },
+        { name: 'Home & Welcome Portal', path: '/', description: 'Official welcome portal & service overview', badge: 'Public', badgeColor: 'bg-orange-100 text-primary border-orange-200', icon: Home },
         { name: 'The Station — Coworking Space Showcase', path: '/the-station', description: 'Single-page coworking space website in Vanilla & Moonstone palette', badge: 'Coworking Site', badgeColor: 'bg-amber-100 text-amber-800 border-amber-200 font-bold', icon: Sparkles },
         { name: 'Senior Member Dashboard', path: '/dashboard', description: 'Senior view with SOS, daily health, medication & appointments', badge: 'Senior', badgeColor: 'bg-rose-100 text-rose-800 border-rose-200', icon: Heart },
         { name: 'Family Guardian Dashboard', path: '/family-dashboard', description: 'Real-time telemetry, peace of mind metrics & family updates', badge: 'Family', badgeColor: 'bg-blue-100 text-blue-800 border-blue-200', icon: Users },
@@ -146,7 +146,7 @@ export const AuthLandingPage = () => {
         { name: 'Senior Onboarding Form', path: '/auth/signup-elderly', description: 'Senior registration, mobility assistance & contact input', badge: 'Senior Flow', badgeColor: 'bg-rose-100 text-rose-800 border-rose-200', icon: Heart },
         { name: 'Volunteer Application', path: '/auth/signup-volunteer', description: 'Skill selection & background check application', badge: 'Volunteer Flow', badgeColor: 'bg-amber-100 text-amber-800 border-amber-200', icon: UserCheck },
         { name: 'Family Link Account', path: '/auth/signup-family', description: 'Family relationship linkage & notification settings', badge: 'Family Flow', badgeColor: 'bg-blue-100 text-blue-800 border-blue-200', icon: Users },
-        { name: 'Companion Interactions Hub', path: '/auth/interactions', description: 'Community social match feed & onboarding interaction', badge: 'Community', badgeColor: 'bg-teal-100 text-teal-800 border-teal-200', icon: Sparkles },
+        { name: 'Companion Interactions Hub', path: '/auth/interactions', description: 'Community social match feed & onboarding interaction', badge: 'Community', badgeColor: 'bg-orange-100 text-primary border-orange-200', icon: Sparkles },
         { name: 'Volunteer Pending Approval', path: '/auth/pending-approval', description: 'Background verification status for newly registered volunteers', badge: 'Verification', badgeColor: 'bg-yellow-100 text-yellow-800 border-yellow-200', icon: Shield }
       ]
     },
@@ -155,7 +155,7 @@ export const AuthLandingPage = () => {
       title: '💊 Health, Daily Care & Appointments',
       description: 'Prescriptions, mood check-ins, clinic visits & video calls',
       links: [
-        { name: 'Medication Management', path: '/medications', description: 'Prescription schedules, dosage alerts & refill tracker', badge: 'Medications', badgeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200', icon: Pill },
+        { name: 'Medication Management', path: '/medications', description: 'Prescription schedules, dosage alerts & refill tracker', badge: 'Medications', badgeColor: 'bg-orange-100 text-primary border-orange-200', icon: Pill },
         { name: 'Daily Wellbeing Check-In', path: '/wellbeing', description: 'Mood tracker, pain level indicator & vitals log', badge: 'Wellness', badgeColor: 'bg-rose-100 text-rose-800 border-rose-200', icon: Activity },
         { name: 'Appointments & Escort Transport', path: '/appointments', description: 'Upcoming clinic consults & door-to-door ride escort calendar', badge: 'Medical', badgeColor: 'bg-blue-100 text-blue-800 border-blue-200', icon: Calendar },
         { name: 'Senior HD Video Telecare', path: '/video-interaction', description: '1-tap high-clarity video calls with family & nurses', badge: 'Telecare', badgeColor: 'bg-violet-100 text-violet-800 border-violet-200', icon: Video },
@@ -177,7 +177,7 @@ export const AuthLandingPage = () => {
       title: '🤝 Volunteer Matching & Visits',
       description: 'AI match algorithm, coordinator roster & visit feedback',
       links: [
-        { name: 'AI Volunteer Matching', path: '/volunteer-matching', description: 'Interest-based & proximity matching with compatibility scores', badge: 'AI Match', badgeColor: 'bg-teal-100 text-teal-800 border-teal-200', icon: Sparkles },
+        { name: 'AI Volunteer Matching', path: '/volunteer-matching', description: 'Interest-based & proximity matching with compatibility scores', badge: 'AI Match', badgeColor: 'bg-orange-100 text-primary border-orange-200', icon: Sparkles },
         { name: 'Volunteer Management Roster', path: '/volunteer-management', description: 'Coordinator portal to manage vetted volunteers & assignments', badge: 'Admin', badgeColor: 'bg-cyan-100 text-cyan-800 border-cyan-200', icon: UserCheck },
         { name: 'Companion Visit Logs & Schedules', path: '/volunteer-visits', description: 'Upcoming home visits, activity logs & visit feedback', badge: 'Visits', badgeColor: 'bg-orange-100 text-orange-800 border-orange-200', icon: Calendar }
       ]
@@ -196,7 +196,7 @@ export const AuthLandingPage = () => {
       title: '🔌 Backend Server & Express API',
       description: 'Live Node / Express backend server running on port 5000',
       links: [
-        { name: 'CareConnect Express API', path: 'http://localhost:5000/api', description: 'Backend API serving health check, users, visits & telemetry', badge: 'Express :5000', badgeColor: 'bg-gray-900 text-emerald-400 border-gray-700', icon: Server, isExternal: true }
+        { name: 'CareConnect Express API', path: 'http://localhost:5000/api', description: 'Backend API serving health check, users, visits & telemetry', badge: 'Express :5000', badgeColor: 'bg-gray-900 text-orange-400 border-gray-700', icon: Server, isExternal: true }
       ]
     }
   ];
@@ -713,7 +713,7 @@ export const AuthLandingPage = () => {
 
             <Link
               to="/auth/register"
-              className="h-9 px-3.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-primary text-xs font-bold transition-all inline-flex items-center justify-center cursor-pointer border border-emerald-200/60 active:scale-95"
+              className="h-9 px-3.5 rounded-lg bg-orange-50 hover:bg-orange-100 text-primary text-xs font-bold transition-all inline-flex items-center justify-center cursor-pointer border border-orange-200/60 active:scale-95"
               title="Create New CareConnect Account"
             >
               Register
@@ -776,7 +776,7 @@ export const AuthLandingPage = () => {
               <Link
                 to="/auth/register"
                 onClick={() => setIsMobileNavOpen(false)}
-                className="py-2.5 rounded-xl bg-emerald-50 text-primary border border-emerald-200 text-xs font-bold text-center"
+                className="py-2.5 rounded-xl bg-orange-50 text-primary border border-orange-200 text-xs font-bold text-center"
               >
                 Register
               </Link>
@@ -869,7 +869,7 @@ export const AuthLandingPage = () => {
 
                 <Link
                   to="/auth/login"
-                  className="h-12 px-6 rounded-full bg-emerald-50 hover:bg-emerald-100 text-primary border border-emerald-300/80 text-sm font-bold transition-all flex items-center gap-2 shadow-xs group"
+                  className="h-12 px-6 rounded-full bg-orange-50 hover:bg-orange-100 text-primary border border-orange-300/80 text-sm font-bold transition-all flex items-center gap-2 shadow-xs group"
                 >
                   <Lock size={15} />
                   <span>Sign In</span>
@@ -1065,8 +1065,8 @@ export const AuthLandingPage = () => {
             </form>
 
             {bookingSubmitted && (
-              <div className="mt-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center gap-2 animate-in fade-in">
-                <CheckCircle2 size={16} className="text-emerald-600" />
+              <div className="mt-6 p-4 rounded-2xl bg-orange-50 border border-orange-200 text-orange-950 text-xs font-bold flex items-center gap-2 animate-in fade-in">
+                <CheckCircle2 size={16} className="text-primary" />
                 <span>Care request scheduled for {bookingForm.seniorName} on {bookingForm.date}! Redirecting to care dashboard...</span>
               </div>
             )}
@@ -1486,9 +1486,9 @@ export const AuthLandingPage = () => {
                 </button>
 
                 {contactSubmitted && (
-                  <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center gap-2">
-                    <CheckCircle2 size={16} className="text-emerald-600" />
-                    <span>Thank you! Your message has been received. Our caregiver coordinator will reply shortly.</span>
+                  <div className="p-4 rounded-xl bg-orange-50 border border-orange-200 text-orange-950 text-xs font-bold flex items-center gap-2">
+                    <CheckCircle2 size={16} className="text-primary" />
+                    <span>Enquiry message sent successfully! A care coordinator will connect shortly.</span>
                   </div>
                 )}
 
@@ -1631,7 +1631,7 @@ export const AuthLandingPage = () => {
                           >
                             <div>
                               <div className="flex items-center justify-between mb-2">
-                                <div className="w-8 h-8 rounded-xl bg-slate-900 text-emerald-400 flex items-center justify-center">
+                                <div className="w-8 h-8 rounded-xl bg-slate-900 text-orange-400 flex items-center justify-center">
                                   <IconComp size={16} />
                                 </div>
                                 <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${link.badgeColor}`}>
@@ -1690,7 +1690,7 @@ export const AuthLandingPage = () => {
                                 className="p-1 rounded text-[#64748B] hover:text-primary hover:bg-[#F8F9FA] transition-colors"
                                 title="Copy link"
                               >
-                                {isCopied ? <Check size={13} className="text-emerald-600" /> : <Copy size={13} />}
+                                {isCopied ? <Check size={13} className="text-primary" /> : <Copy size={13} />}
                               </button>
                               <Link to={link.path} className="text-primary font-bold hover:underline">
                                 Visit →
@@ -2057,10 +2057,10 @@ export const AuthLandingPage = () => {
             </div>
 
             {serviceBookingSuccess ? (
-              <div className="p-8 text-center space-y-3 bg-emerald-50 rounded-2xl border border-emerald-200">
-                <CheckCircle2 size={44} className="mx-auto text-emerald-600 animate-bounce" />
-                <h3 className="text-lg font-bold text-emerald-900">Care Appointment Scheduled!</h3>
-                <p className="text-xs text-emerald-700">
+              <div className="p-8 text-center space-y-3 bg-orange-50 rounded-2xl border border-orange-200">
+                <CheckCircle2 size={44} className="mx-auto text-primary animate-bounce" />
+                <h3 className="text-lg font-bold text-orange-950">Care Appointment Scheduled!</h3>
+                <p className="text-xs text-primary">
                   Your appointment for <strong>{selectedServiceForBooking.title}</strong> is confirmed. Redirecting to your dashboard...
                 </p>
               </div>

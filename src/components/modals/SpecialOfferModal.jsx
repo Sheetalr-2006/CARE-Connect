@@ -207,8 +207,8 @@ export const SpecialOfferModal = ({
             </div>
           </form>
         ) : (
-          <div className="mt-3.5 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold flex items-center justify-center gap-2">
-            <Check size={16} />
+          <div className="mt-3.5 p-3 rounded-xl bg-orange-50 border border-orange-200 text-orange-950 text-xs font-bold flex items-center justify-center gap-2">
+            <Check size={16} className="text-primary" />
             <span>Offer unlocked! Code applied to your account.</span>
           </div>
         )}

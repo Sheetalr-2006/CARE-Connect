@@ -161,7 +161,7 @@ export const MainDashboard = () => {
                     Next Medication
                   </h3>
                   <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
-                    nextMed.status === 'Taken' ? 'bg-emerald-100 text-emerald-800' : 'bg-[#FFE8DF] text-primary'
+                    nextMed.status === 'Taken' ? 'bg-orange-100 text-primary' : 'bg-[#FFE8DF] text-primary'
                   }`}>
                     {nextMed.status}
                   </span>
@@ -182,7 +182,7 @@ export const MainDashboard = () => {
                   onClick={() => toggleMedicationStatus(nextMed.id)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-transform active:scale-95 ${
                     nextMed.status === 'Taken'
-                      ? 'bg-emerald-600 text-white'
+                      ? 'bg-primary text-white shadow-ambient'
                       : 'bg-primary text-white hover:bg-primary/90 shadow-sm'
                   }`}
                 >

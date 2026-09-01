@@ -127,7 +127,7 @@ export const RoleSelectPage = () => {
           <ArrowRight size={18} />
         </button>
         <div className="mt-4 flex items-center justify-center gap-2 text-[11px] text-on-surface-variant">
-          <ShieldCheck size={14} className="text-emerald-600" />
+          <ShieldCheck size={14} className="text-primary" />
           <span>Caregiver verification and encrypted identity protection</span>
         </div>
       </div>

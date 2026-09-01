@@ -176,12 +176,12 @@ export const VolunteerVisits = () => {
                         onClick={() => toggleVisitChecklist(visit.id, item.id)}
                         className={`flex items-center gap-2.5 p-3 rounded-2xl border text-left text-xs transition-all ${
                           item.done
-                            ? 'bg-emerald-50 border-emerald-200 text-emerald-800 font-semibold'
+                            ? 'bg-orange-50 border-orange-200 text-orange-900 font-semibold'
                             : 'bg-[#F8F9FA] border-[#E2E8F0] text-[#1A1D20] hover:border-primary/40'
                         }`}
                       >
                         {item.done ? (
-                          <CheckSquare size={16} className="text-emerald-600 flex-shrink-0" />
+                          <CheckSquare size={16} className="text-primary flex-shrink-0" />
                         ) : (
                           <Square size={16} className="text-[#94A3B8] flex-shrink-0" />
                         )}
@@ -208,7 +208,7 @@ export const VolunteerVisits = () => {
                         <div className="flex gap-2">
                           <button
                             onClick={() => handleFinishVisit(visit.id)}
-                            className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-sm hover:bg-emerald-700"
+                            className="px-4 py-2 rounded-xl bg-primary text-white font-bold text-xs shadow-sm hover:bg-primary-hover"
                           >
                             Submit & Mark Completed
                           </button>
@@ -223,7 +223,7 @@ export const VolunteerVisits = () => {
                     ) : (
                       <button
                         onClick={() => setCompletingVisitId(visit.id)}
-                        className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-sm transition-all"
+                        className="px-4 py-2 rounded-xl bg-primary hover:bg-primary-hover text-white font-bold text-xs shadow-sm transition-all"
                       >
                         Mark Visit as Completed
                       </button>
@@ -231,7 +231,7 @@ export const VolunteerVisits = () => {
                   </>
                 ) : (
                   <div className="flex items-center justify-between w-full">
-                    <span className="text-xs text-emerald-700 font-bold flex items-center gap-1.5">
+                    <span className="text-xs text-primary font-bold flex items-center gap-1.5">
                       <CheckCircle2 size={16} /> Visit Completed Successfully
                     </span>
                     <button

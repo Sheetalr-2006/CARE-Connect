@@ -460,7 +460,7 @@ export const AppProvider = ({ children }) => {
           : 'notifications',
       badgeColor:
         type === 'health'
-          ? 'bg-emerald-600 text-white'
+          ? 'bg-primary text-white'
           : type === 'medication'
           ? 'bg-amber-500 text-white'
           : type === 'emergency'

@@ -134,9 +134,9 @@ export const Sidebar = ({ onCloseMobile }) => {
             <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Active Persona</span>
             <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full capitalize ${
               userRole === 'family'
-                ? 'bg-purple-100 text-purple-800'
+                ? 'bg-orange-100 text-primary'
                 : userRole === 'volunteer'
-                ? 'bg-emerald-100 text-emerald-800'
+                ? 'bg-orange-50 text-primary border border-orange-200'
                 : 'bg-primary/10 text-primary'
             }`}>
               {userRole === 'elderly' ? 'Senior 🧓' : userRole === 'family' ? 'Family 👨‍👩‍👧' : 'Volunteer 🤝'}

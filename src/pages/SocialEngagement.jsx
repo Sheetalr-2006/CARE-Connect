@@ -90,7 +90,7 @@ export const SocialEngagement = () => {
             <span className="text-xs text-amber-800 font-bold bg-amber-50 px-3 py-1 rounded-full border border-amber-200 flex items-center gap-1">
               <Film size={13} className="text-primary" /> {movieCount} Classic Movie Screenings Available
             </span>
-            <span className="text-xs text-emerald-700 font-bold bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <span className="text-xs text-primary font-bold bg-orange-50 px-3 py-1 rounded-full border border-orange-200">
               ✓ {joinedCount} Booked
             </span>
           </div>
@@ -168,7 +168,7 @@ export const SocialEngagement = () => {
               onClick={() => setFilterJoinedOnly(!filterJoinedOnly)}
               className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-colors border ${
                 filterJoinedOnly
-                  ? 'bg-emerald-600 text-white border-emerald-600 shadow-sm'
+                  ? 'bg-primary text-white border-primary shadow-sm'
                   : 'bg-[#F8F9FA] border-[#E2E8F0] text-[#64748B] hover:text-[#1A1D20]'
               }`}
             >
@@ -296,7 +296,7 @@ export const SocialEngagement = () => {
                     onClick={() => toggleEventJoin(ev.id)}
                     className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 flex-shrink-0 active:scale-95 ${
                       ev.joined
-                        ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                        ? 'bg-primary text-white hover:bg-primary-hover shadow-ambient'
                         : 'bg-primary text-white hover:bg-primary-hover'
                     }`}
                   >
@@ -324,7 +324,7 @@ export const SocialEngagement = () => {
                     onClick={() => toggleEventJoin(ev.id)}
                     className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm flex items-center gap-1.5 flex-shrink-0 active:scale-95 ${
                       ev.joined
-                        ? 'bg-emerald-600 text-white hover:bg-emerald-700'
+                        ? 'bg-primary text-white hover:bg-primary-hover shadow-ambient'
                         : 'bg-primary text-white hover:bg-primary-hover'
                     }`}
                   >
@@ -349,14 +349,16 @@ export const SocialEngagement = () => {
 
       {/* Movie Details & Seat Reservation Modal */}
       {selectedMovie && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-elevated border border-[#E2E8F0] relative max-h-[90vh] overflow-y-auto text-[#1A1D20]">
-            
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative animate-modal-scale-in">
             <button
-              onClick={() => setSelectedMovie(null)}
-              className="absolute top-5 right-5 p-2 rounded-xl hover:bg-[#F1F5F9] text-[#64748B] hover:text-[#1A1D20] transition-colors"
+              onClick={() => {
+                setSelectedMovie(null);
+                setMovieBookingSuccess(false);
+              }}
+              className="absolute right-5 top-5 p-2 rounded-full bg-[#F1F5F9] text-[#64748B] hover:text-[#1A1D20]"
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
             <div className="flex items-center gap-3 mb-5">
@@ -372,10 +374,10 @@ export const SocialEngagement = () => {
             </div>
 
             {movieBookingSuccess ? (
-              <div className="p-8 text-center space-y-3 bg-emerald-50 rounded-2xl border border-emerald-200">
-                <CheckCircle2 size={44} className="mx-auto text-emerald-600 animate-bounce" />
-                <h3 className="text-lg font-bold text-emerald-900">Seat & Complimentary Treats Reserved!</h3>
-                <p className="text-xs text-emerald-700">
+              <div className="p-8 text-center space-y-3 bg-orange-50 rounded-2xl border border-orange-200">
+                <CheckCircle2 size={44} className="mx-auto text-primary animate-bounce" />
+                <h3 className="text-lg font-bold text-orange-950">Seat & Complimentary Treats Reserved!</h3>
+                <p className="text-xs text-primary">
                   Your ticket, <strong>{seatType}</strong>, and <strong>{selectedTreat}</strong> are confirmed for {selectedMovie.time}.
                 </p>
               </div>
